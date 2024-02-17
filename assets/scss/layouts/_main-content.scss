@@ -1,0 +1,12 @@
+.main {
+  background-image: url("/public/images/bg-grid-lighter.svg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &-content {
+    margin-left: 300px;
+    padding: 10px;
+  }
+}
+
+

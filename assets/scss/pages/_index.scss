@@ -1,0 +1,11 @@
+.pos-filter {
+  input[type="radio"]:checked + label {
+    background-color: $primary-color !important;
+  }
+}
+.pos {
+  background-image: url('/public/images/bg-grid-lighter.svg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

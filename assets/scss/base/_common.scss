@@ -1,0 +1,445 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+body {
+    background: $bg-color !important;
+    font-family: 'Open Sans', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,{
+    margin: 0;
+    text-transform: capitalize;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: inherit;
+    font-family: 'Open Sans', sans-serif;
+}
+p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    display: inline-block;
+}
+span {
+    display: inline-block;
+    color: #fff;
+}
+i {
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+button {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+input {
+    border: none;
+    outline: none;
+    background: transparent !important;
+    color: #fff !important;
+    &::placeholder {
+        color: #fff !important;
+    }
+}
+.form-check-input:checked {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+.form-check-input:focus {
+    border-color: rgba($primary-color, 0.3) !important;
+    box-shadow: 0 0 0 0.25rem rgba($primary-color,.25) !important;
+}
+/*---------------------------------
+Buttons
+-----------------------------------*/
+.primary-icon-button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    background: $primary-color;
+    svg {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+    }
+}
+.primary-red-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 4px 12px;
+    background-color: $primary-color;
+    border-radius: 6px;
+    svg {
+        color: #fff;
+        width: 20px;
+        height: 20px;
+    }
+}
+.edit {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(19, 247, 2, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0.5px solid rgb(19, 247, 2);
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgb(19, 247, 2);
+    }
+}
+.delete {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0.5px solid rgb(255, 0, 0);
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgb(255, 0, 0);
+    }
+}
+.view {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 0, 0.150);
+    border-radius: 10px;
+    cursor: pointer;
+    border: 0.5px solid rgb(255, 255, 255);
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgb(255, 255, 2555);
+    }
+}
+.red-button {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(255, 0, 0, 0.150);
+    border-radius: 999px;
+    border: 0.5px solid rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
+    font-weight: 500;
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgb(255, 0, 0);
+    }
+
+}
+.green-button {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(19, 247, 2, 0.150) !important;
+    border-radius: 999px;
+    border: 0.5px solid rgb(19, 247, 2);
+    color: rgb(19, 247, 2);
+    font-weight: 500;
+    svg {
+        width: 20px;
+        height: 20px;
+        color: rgb(19, 247, 2);
+    }
+
+}
+/*---------------------------------
+Glass Morphism
+-----------------------------------*/
+.bg-glass-morphi {
+    background-color: rgba(255, 255, 255, 0.100) !important;
+}
+.glass-morphi-border {
+    border: 0.5px solid #5f5f5f !important;
+}
+/*---------------------------------
+Blur bg
+-----------------------------------*/
+.blur-bg-3 {
+    backdrop-filter: blur(3px);
+}
+.blur-bg-5 {
+    backdrop-filter: blur(5px);
+}
+.blur-bg {
+    backdrop-filter: blur(10px);
+}
+/*---------------------------------
+Color
+-----------------------------------*/
+.primary {
+    &-color {
+        color: $primary-color;
+    }
+    &-bg {
+        background-color: $primary-color;
+    }
+    &-border {
+        border:1px solid $primary-color;
+        &-2 {
+            border:2px solid $primary-color;
+        }
+    }
+    &-bg-hover {
+        &:hover {
+            color: #fff;
+            background-color: $primary-color !important;
+            border-color: $primary-color !important;
+        }
+    }
+}
+.text-green {
+    color: rgb(19, 247, 2);
+}
+
+/*---------------------------------
+Button
+-----------------------------------*/
+.primary-button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    background-color: $primary-color;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.glass-morphi-button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.100) !important;
+    border: 0.5px solid #5f5f5f !important;
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+}
+/*---------------------------------
+Icons
+-----------------------------------*/
+.icon {
+    color: #fff;
+}
+.icon-hover {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all ease-in-out 0.4s;
+    cursor: pointer;
+
+
+    svg {
+        color: #fff;
+        width: 20px;
+        height: 20px;
+        transition: all ease-in-out 0.4s;
+    }
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        svg {
+            color: $primary-color;
+        }
+    }
+}
+
+/*---------------------------------
+Size
+-----------------------------------*/
+.width {
+    &-20px {
+        width: 20px;
+    }
+    &-30px {
+        width: 30px;
+    }
+    &-40px {
+        width: 40px;
+    }
+}
+.height {
+    &-20px {
+        height: 20px;
+    }
+    &-30px {
+        height: 30px;
+    }
+    &-40px {
+        height: 40px;
+    }
+}
+
+/*---------------------------------
+Cards
+-----------------------------------*/
+.th {
+    &-card {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background: rgba(255, 255, 255, 0.100);
+        padding: 20px;
+        border-radius: 12px;
+        border: 0.7px solid #5f5f5f;
+        position: relative;
+        overflow: hidden;
+        transition: all ease-in-out 0.4s;
+        &:hover {
+            .th-card-top-icon{
+                box-shadow: rgba($primary-color, 0.2) 5px 5px, rgba($primary-color, 0.1) 10px 10px, rgba($primary-color , 0.05) 15px 15px;
+            }
+            &:after {
+                //transform: rotate(-19deg);
+                //top: 40px;
+            }
+        }
+
+        &-top {
+            &-icon {
+                width: 60px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 12px;
+                transition: all ease-in-out 0.4s;
+                svg {
+                    width: 30px;
+                    height: 30px;
+                    color: #fff;
+                }
+            }
+        }
+        &-body {
+            h4 {
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 74px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/public/images/card-vector.png");
+            background-position: center;
+            background-size: cover;
+            transition: all ease-in-out 0.4s;
+        }
+
+    }
+}
+
+
+// Need To Remove
+.main-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/public/images/goup46888.png');
+    background-size: cover;
+    background-repeat: no-repeat; 
+
+    .for-v {
+        width: 100%;    
+        max-width: 700px;
+        margin-inline: auto;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        z-index: 1;
+
+        span {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 999px;
+            
+            z-index: 1;
+        }
+        .v-1 {
+            top: -100px;
+            left: -100px;
+            background: plum;
+        }
+        .v-2 {
+            right: -100px;
+            bottom: -50px;
+            background-color: rgba(0, 132, 255, 0.642);
+        }
+        .text {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.09);
+            border: 2px solid rgba(255, 255, 255, 0.49);
+            border-radius: 10px;
+            padding: 60px 0;
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            h1 {
+                font-size: 45px;
+            }
+        }
+    }
+}

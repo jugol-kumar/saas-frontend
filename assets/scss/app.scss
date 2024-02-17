@@ -1,0 +1,161 @@
+/**
+===========================
+Template: Takar Hisab 
+File: Default Styles
+Text Domain: th
+Author: Creative Tech Park | Jugol Kumar | Tushar Imran
+Author URI: https://creativetechpark.com
+Description: 
+Version: 1.0.0
+===========================
+
+Note: This file contains the styles for the full template. You can edit the styles of the template from here.
+
+Default Styles
+
+Table of Contents
+
+01/ Variables
+
+02/ Mixins
+
+03/ Fonts
+
+04/ Common
+
+05/ Override Styles
+
+
+06/ Header
+
+/ Footer  *Footer style is below all
+
+07/ Side Bar
+
+08/ Main Content
+
+09/ Top bar
+
+10/ Auth Form
+
+11/ Plan Card
+
+12/ Product Card
+
+13/ Pages Style
+
+14/ Invoice
+
+
+====================================
+**/
+
+/*------------------------------------
+	Google Fonts
+------------------------------------*/
+
+@import "base/fonts";
+
+/*------------------------------------
+	01/ Variables
+------------------------------------*/
+@import "abstracts/variables";
+
+/*------------------------------------
+	02/ Mixins
+------------------------------------*/
+@import "abstracts/mixins";
+
+/*------------------------------------
+	04/ Common
+------------------------------------*/
+@import "base/common";
+
+/*------------------------------------
+	05/ Override Styles
+------------------------------------*/
+@import "override/bootstrap";
+
+/*------------------------------------
+	06/ Header
+------------------------------------*/
+@import "layouts/header";
+
+/*------------------------------------
+	07/ Side Bar
+------------------------------------*/
+@import "layouts/side-bar";
+
+/*------------------------------------
+	08/ Main Content
+------------------------------------*/
+@import "layouts/main-content";
+
+/*------------------------------------
+	09/ Top Bar
+------------------------------------*/
+@import "layouts/top-bar";
+
+/*------------------------------------
+	10/ Auth Form
+------------------------------------*/
+@import "components/auth-form";
+
+
+/*------------------------------------
+	11/ Plan Card
+------------------------------------*/
+@import "components/plans-card";
+
+/*------------------------------------
+	12/ Product Card
+------------------------------------*/
+@import "components/product-card";
+
+
+/*------------------------------------
+	13/ Pages Style
+------------------------------------*/
+@import "pages/index";
+
+/*------------------------------------
+	14/ Invoice
+------------------------------------*/
+@import "components/invoice";
+
+/*------------------------------------
+	15/ Table
+------------------------------------*/
+@import "components/table";
+
+/*------------------------------------
+	16/ Pagination
+------------------------------------*/
+@import "components/pagination";
+
+/*------------------------------------
+	17/ List
+------------------------------------*/
+@import "components/list";
+
+/*------------------------------------
+	/ Service Card
+------------------------------------*/
+@import "components/service-card";
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*------------------------------------
+	/ Footer
+------------------------------------*/
+@import "layouts/footer";

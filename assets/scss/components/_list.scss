@@ -1,0 +1,16 @@
+.th-list {
+  display: flex;
+  gap: 20px;
+  &-left {
+    img {
+        width: 120px;
+        height: auto;
+        border-radius: 20px;
+      }
+  }
+  &-right {
+    &-text {
+
+    }
+  }
+}
