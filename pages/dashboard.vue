@@ -32,6 +32,18 @@
 <!--    </div>-->
 <!--  </div>-->
   <div class="row my-5">
+    <div class="col-lg-5">
+      <div class="bg-glass-morphi glass-morphi-border p-4 rounded h-100">
+        <div class="d-flex gap-3">
+          <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" class="width-60px height-60px rounded" alt="avatar">
+          <div>
+            <h4>Good Afternoon,</h4>
+            <h3 class="fw-bold">Keane Blackburn</h3>
+          </div>
+        </div>
+        <p class="py-4">Have a nice day! Did you know that you can quickly add your favorite product or category to the store?</p>
+      </div>
+    </div>
     <div class="col-lg-3 col-md-6 col-12">
       <div class="bg-glass-morphi glass-morphi-border p-3 rounded">
         <div class="p-4">
@@ -47,7 +59,10 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-2 col-md-6 col-12">
+
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-12">
       <div class="th-card">
         <div class="th-card-top">
           <span class="th-card-top-icon">
@@ -60,7 +75,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-2 col-md-6 col-12">
+    <div class="col-lg-3 col-md-6 col-12">
       <div class="th-card">
         <div class="th-card-top">
           <span class="th-card-top-icon">
@@ -73,7 +88,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-2 col-md-6 col-12">
+    <div class="col-lg-3 col-md-6 col-12">
       <div class="th-card">
         <div class="th-card-top">
           <span class="th-card-top-icon">
@@ -86,170 +101,58 @@
         </div>
       </div>
     </div>
-  </div>
-
-<div class="row mb-5">
-  <div class="col-lg-6">
-    <h3 class="pb-4">Order</h3>
-  </div>
-  <div class="col-lg-6">
-    <h3 class="pb-4">Top Products</h3>
-    <div class="th-list glass-morphi-border bg-glass-morphi p-3 rounded mb-3">
-      <div class="th-list-left">
-        <img src="/images/product.png" alt="">
-      </div>
-      <div class="th-list-right">
-        <div class="th-list-right-text">
-          <h4>
-            <NuxtLink to="">Apple Watch</NuxtLink>
-          </h4>
-          <div class="d-flex align-items-center gap-4">
-            <p class="py-2">PRICE: $98</p>
-            <p class="py-2">QUANTITY:	45</p>
-          </div>
-
-          <span class='primary-red-button d-inline rounded-5'>2 sold</span>
+    <div class="col-lg-3 col-md-6 col-12">
+      <div class="th-card">
+        <div class="th-card-top">
+          <span class="th-card-top-icon">
+            <Icon name="material-symbols:supervisor-account-sharp" />
+          </span>
         </div>
-      </div>
-    </div>
-    <div class="th-list glass-morphi-border bg-glass-morphi p-3 rounded mb-3">
-      <div class="th-list-left">
-        <img src="/images/product.png" alt="">
-      </div>
-      <div class="th-list-right">
-        <div class="th-list-right-text">
-          <h4>
-            <NuxtLink to="">Apple Watch</NuxtLink>
-          </h4>
-          <div class="d-flex align-items-center gap-4">
-            <p class="py-2">PRICE: $98</p>
-            <p class="py-2">QUANTITY:	45</p>
-          </div>
-
-          <span class='primary-red-button d-inline rounded-5'>2 sold</span>
-        </div>
-      </div>
-    </div>
-    <div class="th-list glass-morphi-border bg-glass-morphi p-3 rounded mb-3">
-      <div class="th-list-left">
-        <img src="/images/product.png" alt="">
-      </div>
-      <div class="th-list-right">
-        <div class="th-list-right-text">
-          <h4>
-            <NuxtLink to="">Apple Watch</NuxtLink>
-          </h4>
-          <div class="d-flex align-items-center gap-4">
-            <p class="py-2">PRICE: $98</p>
-            <p class="py-2">QUANTITY:	45</p>
-          </div>
-
-          <span class='primary-red-button d-inline rounded-5'>2 sold</span>
+        <div class="th-card-body">
+          <h4>Total Customer</h4>
+          <p>55</p>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 
-  <!-- Table -->
-  <div class="th-table glass-morphi-border bg-glass-morphi rounded">
-    <div class="table-top p-4 d-flex align-items-center justify-content-between">
-      <h3>Recent Orders</h3>
-      <div class="d-flex align-items-center gap-4">
-        <div class="d-flex align-items-center">
-          <input type="search" placeholder="Search" class="p-2 border rounded">
-          <Icon name="material-symbols:search-rounded" size="23" class="ms-n5" />
-        </div>
-      </div>
+  <div class="row py-5">
+    <div class="col-lg-6">
+      <h3 class="text-secondary">Chart...</h3>
     </div>
-    <table class="table table-responsive table-borderless">
-      <thead>
-      <tr>
-        <th>
-          <div>
-            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-          </div>
-        </th>
-        <th>ORDER</th>
-        <th>DATE</th>
-        <th>NAME</th>
-        <th>VALUE</th>
-        <th>PAYMENT TYPE</th>
-        <th>STATUS</th>
-        <th>ACTION</th>
-      </tr>
-      </thead>
-        <tr>
-          <td>
-            <div>
-              <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-            </div>
-          </td>
-          <td>
-            <NuxtLink class="glass-morphi-button">756756</NuxtLink>
-          </td>
-          <td>Feb 15, 2024</td>
-          <td>Customer Name</td>
-          <td>$60</td>
-          <td>POS</td>
-          <td>
-            <span class="glass-morphi-button rounded-5 px-4 me-2">Pending</span> Feb 15, 2024
-          </td>
-          <td>
-            <button class="green-button rounded">
-              <Icon name="mdi:eye-outline"  />
-            </button>
-          </td>
-        </tr>
-      <tr>
-        <td>
-          <div>
-            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-          </div>
-        </td>
-        <td>
-          <NuxtLink class="glass-morphi-button">756756</NuxtLink>
-        </td>
-        <td>Feb 15, 2024</td>
-        <td>Customer Name</td>
-        <td>$60</td>
-        <td>POS</td>
-        <td>
-          <span class="glass-morphi-button rounded-5 px-4 me-2">Pending</span> Feb 15, 2024
-        </td>
-        <td>
-          <button class="green-button rounded">
-            <Icon name="mdi:eye-outline"  />
+    <div class="col-lg-6">
+      <div class="bg-glass-morphi glass-morphi-border p-4 rounded">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h3 class="fs-4">Popular Product</h3>
+          <button class="primary-icon-button">
+            <Icon name="material-symbols:download" />
           </button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div>
-            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <div class="d-flex align-items-center gap-3">
+            <img class="width-60px height-60px rounded" src="/images/product.png" alt="">
+            <h5>Apple iPhone 13</h5>
           </div>
-        </td>
-        <td>
-          <NuxtLink class="glass-morphi-button">756756</NuxtLink>
-        </td>
-        <td>Feb 15, 2024</td>
-        <td>Customer Name</td>
-        <td>$60</td>
-        <td>POS</td>
-        <td>
-          <span class="glass-morphi-button rounded-5 px-4 me-2">Pending</span> Feb 15, 2024
-        </td>
-        <td>
-          <button class="green-button rounded">
-            <Icon name="mdi:eye-outline"  />
-          </button>
-        </td>
-      </tr>
-    </table>
-    <div class="table-bottom">
-      <Pagination />
+          <h4>$999.29</h4>
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <div class="d-flex align-items-center gap-3">
+            <img class="width-60px height-60px rounded" src="/images/product.png" alt="">
+            <h5>Apple iPhone 13</h5>
+          </div>
+          <h4>$999.29</h4>
+        </div>
+        <div class="d-flex align-items-center justify-content-between py-2">
+          <div class="d-flex align-items-center gap-3">
+            <img class="width-60px height-60px rounded" src="/images/product.png" alt="">
+            <h5>Apple iPhone 13</h5>
+          </div>
+          <h4>$999.29</h4>
+        </div>
+      </div>
     </div>
+
   </div>
 </template>
 <style scoped>

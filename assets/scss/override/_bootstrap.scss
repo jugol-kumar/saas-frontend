@@ -76,3 +76,12 @@ table {
       color: #fff;
     }
   }
+
+.offcanvas-backdrop.show {
+  opacity: 1 !important;
+  backdrop-filter: blur(10px) !important;
+  background: transparent !important;
+}
+.fade {
+  transition: all ease-in-out 0.4s !important;
+}

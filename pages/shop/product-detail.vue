@@ -26,15 +26,10 @@
         <h3>Apple Watch</h3>
         <h4 class="fw-semibold py-2">$599</h4>
         <p>Available - <span class="primary-color fw-semibold">In Stock</span></p>
-
         <p class="fs-5 py-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda commodi culpa ducimus quasi sapiente velit voluptatum? A, blanditiis distinctio doloremque error esse, incidunt neque rem sed sequi totam ullam!</p>
-
         <div class="d-flex align-items-center gap-2">
           <button class="primary-button d-flex align-items-center gap-2">
             <Icon name="ic:sharp-add-shopping-cart" size="20" /> Add Cart
-          </button>
-          <button class="glass-morphi-button d-flex align-items-center gap-2">
-          <Icon name="tabler:shopping-cart-dollar" size="20" />  Buy Now
           </button>
         </div>
       </div>

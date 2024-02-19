@@ -46,6 +46,16 @@ Table of Contents
 
 14/ Invoice
 
+15/ Table
+
+16/ Pagination
+
+17/ List
+
+18/ Service Card
+
+19/ Setting Tab
+
 
 ====================================
 **/
@@ -75,6 +85,10 @@ Table of Contents
 	05/ Override Styles
 ------------------------------------*/
 @import "override/bootstrap";
+
+
+
+
 
 /*------------------------------------
 	06/ Header
@@ -139,10 +153,20 @@ Table of Contents
 @import "components/list";
 
 /*------------------------------------
-	/ Service Card
+	18/ Service Card
 ------------------------------------*/
 @import "components/service-card";
 
+/*------------------------------------
+	19/ Setting Tab
+------------------------------------*/
+@import "components/setting-tab";
+
+
+/*------------------------------------
+	20/ Shop Card
+------------------------------------*/
+@import "components/shop-card";
 
 
 

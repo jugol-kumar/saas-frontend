@@ -1,0 +1,12 @@
+.setting-tab {
+  .nav-pills .nav-link {
+    background-color: rgba(255, 255, 255, 0.100) !important;
+    color: #fff;
+    border: 0.5px solid #5f5f5f !important;
+  }
+
+  .nav-pills .nav-link.active {
+    background-color: $primary-color !important;
+    border-color: $primary-color !important;
+  }
+}

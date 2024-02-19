@@ -17,11 +17,41 @@
       top: 8px;
       right: 8px;
     }
-  }
-  &--toggled {
-    .actions {
+    &--toggled {
       opacity: 1;
       transition: all ease-in-out 0.4s;
+    }
+  }
+}
+
+.services-detail {
+  .actions {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 6px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    opacity: 0;
+    transition: all ease-in-out 0.2s;
+    button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 4px;
+      &:hover {
+        background-color: $primary-color;
+      }
+    }
+    &--toggled {
+      opacity: 1;
+      transition: all ease-in-out 0.2s;
     }
   }
 }

@@ -1,7 +1,6 @@
 <script setup>
 
 </script>
-
 <template>
   <div class="side-bar">
     <div class="side-bar-top">
@@ -84,7 +83,7 @@
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="/pos" class="items-link">
+            <NuxtLink to="/shop/customer" class="items-link">
               <span class="icon">
                 <Icon name="mdi:shopping"></Icon>
               </span>
@@ -116,7 +115,7 @@
             </a>
             <ul class="collapse ps-3" id="collapseInvoice">
               <li class="my-3">
-                <NuxtLink to="/invoice/list" class="items-link">
+                <NuxtLink to="/invoice/list" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -124,7 +123,7 @@
                 </NuxtLink>
               </li>
               <li class="mb-3">
-                <NuxtLink to="/invoice/preview" class="items-link">
+                <NuxtLink to="/invoice/preview" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -132,7 +131,7 @@
                 </NuxtLink>
               </li>
               <li class="mb-3">
-                <NuxtLink to="/invoice/edit" class="items-link">
+                <NuxtLink to="/invoice/edit" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -140,7 +139,7 @@
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/invoice/add" class="items-link">
+                <NuxtLink to="/invoice/add" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -159,7 +158,7 @@
             </a>
             <ul class="collapse ps-3" id="collapseRole">
               <li class="my-3">
-                <NuxtLink to="/roles" class="items-link">
+                <NuxtLink to="/roles" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -167,7 +166,7 @@
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/permission" class="items-link">
+                <NuxtLink to="/permission" class="items-link items-link--sub">
                   <span class="icon">
                     <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
                   </span>
@@ -185,7 +184,7 @@
             </NuxtLink>
           </li>
           <li>
-            <NuxtLink to="" class="items-link">
+            <NuxtLink to="/settings" class="items-link">
               <span class="icon">
                 <Icon name="material-symbols:settings-b-roll-rounded"></Icon>
               </span>
@@ -198,5 +197,4 @@
 </template>
 
 <style scoped>
-
 </style>
