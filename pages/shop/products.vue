@@ -210,11 +210,7 @@
         </div>
         <div class="mb-3">
           <label for="product-category" class="text-white d-block mb-1">Product Category</label>
-          <select class="bg-transparent p-2 w-100 text-white">
-            <option value="">Category 1</option>
-            <option value="">Category 2</option>
-            <option value="">Category 3</option>
-          </select>
+          <v-select />
         </div>
         <div>
           <label for="product-price" class="text-white d-block mb-1">Price</label>

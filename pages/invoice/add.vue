@@ -56,11 +56,15 @@
                     <div class="col-xl-8 mb-lg-1 col-bill-to ps-0">
                       <h6 class="invoice-to-title">Invoice To:</h6>
                       <div class="invoice-customer">
-                        <select class="invoiceto form-select bg-transparent text-white">
-                          <option value="shelby">Shelby Company Limited</option>
-                          <option value="hunters">Hunters Corp</option>
-                        </select>
-                        <button type="button" data-bs-toggle="model" data-bs-target="#add-new-customer-sidebar">Add New Customer</button>
+                        <v-select />
+                        <button
+                            class="glass-morphi-button mt-2 d-flex align-items-center gap-2"
+                            data-bs-toggle="offcanvas"
+                            data-bs-target="#add-new-customer-sidebar"
+                        >
+                          <Icon name="material-symbols:add" />
+                          Add New Customer
+                        </button>
                       </div>
                     </div>
                     <div class="col-xl-4 p-0 ps-xl-2 mt-xl-0 mt-2">
@@ -104,12 +108,8 @@
                             <div class="row w-100 pe-lg-0 pe-1 py-2">
                               <div class="col-lg-5 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2">
                                 <p class="card-text col-title mb-md-50 mb-0">Item</p>
-                                <select class="form-select item-details bg-transparent text-white">
-                                  <option value="App Design">App Design</option>
-                                  <option value="App Customization" selected>App Customization</option>
-                                  <option value="ABC Template">ABC Template</option>
-                                  <option value="App Development">App Development</option>
-                                </select>
+                                <v-select />
+
                                 <textarea class="form-control mt-2 bg-transparent text-white" rows="1">Customization & Bug Fixes</textarea>
                               </div>
                               <div class="col-lg-3 col-12 my-lg-0 my-2">
@@ -163,7 +163,7 @@
                                     </div>
                                   </div>
                                   <div class="dropdown-divider my-1"></div>
-                                  <div class="d-flex justify-content-between">
+                                  <div class="d-flex align-items-center gap-3">
                                     <button type="button" class="primary-button">Apply</button>
                                     <button type="button" class="glass-morphi-button">Cancel</button>
                                   </div>
@@ -254,32 +254,19 @@
               </div>
               <div class="mt-2">
                 <p class="mb-3">Accept payments via</p>
-                <select class="form-select bg-transparent text-white">
-                  <option value="Bank Account">Bank Account</option>
-                  <option value="Paypal">Paypal</option>
-                  <option value="UPI Transfer">UPI Transfer</option>
-                </select>
+                <v-select />
                 <div class="invoice-terms mt-3">
                   <div class="d-flex justify-content-between">
                     <label class="invoice-terms-title mb-0 text-white" for="paymentTerms">Payment Terms</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" checked id="paymentTerms" />
-                      <label class="form-check-label" for="paymentTerms"></label>
-                    </div>
+                    <Switch />
                   </div>
                   <div class="d-flex justify-content-between py-1">
                     <label class="invoice-terms-title mb-0 text-white" for="clientNotes">Client Notes</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" checked id="clientNotes" />
-                      <label class="form-check-label" for="clientNotes"></label>
-                    </div>
+                    <Switch />
                   </div>
                   <div class="d-flex justify-content-between">
                     <label class="invoice-terms-title mb-0 text-white" for="paymentStub">Payment Stub</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" id="paymentStub" />
-                      <label class="form-check-label" for="paymentStub"></label>
-                    </div>
+                    <Switch />
                   </div>
                 </div>
               </div>
@@ -287,60 +274,35 @@
             <!-- Invoice Add Right ends -->
           </div>
 
-          <!-- Add New Customer Sidebar -->
-          <div class="modal modal-slide-in fade" id="add-new-customer-sidebar" aria-hidden="true">
-            <div class="modal-dialog sidebar-lg">
-              <div class="modal-content p-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">×</button>
-                <div class="modal-header mb-1">
-                  <h5 class="modal-title">
-                    <span class="align-middle">Add Customer</span>
-                  </h5>
-                </div>
-                <div class="modal-body flex-grow-1">
-                  <form>
-                    <div class="mb-1">
-                      <label for="customer-name" class="form-label">Customer Name</label>
-                      <input type="text" class="form-control" id="customer-name" placeholder="John Doe" />
-                    </div>
-                    <div class="mb-1">
-                      <label for="customer-email" class="form-label">Email</label>
-                      <input type="email" class="form-control" id="customer-email" placeholder="example@domain.com" />
-                    </div>
-                    <div class="mb-1">
-                      <label for="customer-address" class="form-label">Customer Address</label>
-                      <textarea class="form-control" id="customer-address" cols="2" rows="2" placeholder="1307 Lady Bug Drive New York"></textarea>
-                    </div>
-                    <div class="mb-1 position-relative">
-                      <label for="customer-country" class="form-label">Country</label>
-                      <select class="form-select" id="customer-country" name="customer-country">
-                        <option label="select country"></option>
-                        <option value="Australia">Australia</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Russia">Russia</option>
-                        <option value="Saudi Arabia">Saudi Arabia</option>
-                        <option value="Singapore">Singapore</option>
-                        <option value="Sweden">Sweden</option>
-                        <option value="Switzerland">Switzerland</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United Arab Emirates">United Arab Emirates</option>
-                        <option value="United States of America">United States of America</option>
-                      </select>
-                    </div>
-                    <div class="mb-1">
-                      <label for="customer-contact" class="form-label">Contact</label>
-                      <input type="number" class="form-control" id="customer-contact" placeholder="763-242-9206" />
-                    </div>
-                    <div class="mb-1 d-flex flex-wrap mt-2">
-                      <button type="button" class="btn btn-primary me-1" data-bs-dismiss="modal">Add</button>
-                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                  </form>
-                </div>
+          <Offcanvas id="add-new-customer-sidebar" title="Add new customer">
+            <form>
+              <div class="mb-1">
+                <label for="customer-name" class="form-label">Customer Name</label>
+                <input type="text" class="form-control" id="customer-name" placeholder="John Doe" />
               </div>
-            </div>
-          </div>
-          <!-- /Add New Customer Sidebar -->
+              <div class="mb-1">
+                <label for="customer-email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="customer-email" placeholder="example@domain.com" />
+              </div>
+              <div class="mb-1">
+                <label for="customer-address" class="form-label">Customer Address</label>
+                <textarea class="form-control bg-transparent text-white" id="customer-address" cols="2" rows="2"></textarea>
+              </div>
+              <div class="mb-1 position-relative">
+                <label for="customer-country" class="form-label">Country</label>
+                <v-select />
+              </div>
+              <div class="mb-1">
+                <label for="customer-contact" class="form-label">Contact</label>
+                <input type="number" class="form-control" id="customer-contact" placeholder="763-242-9206" />
+              </div>
+              <div class="mb-1 d-flex flex-wrap mt-2 gap-2">
+                <button type="button" class="primary-button me-1" data-bs-dismiss="offcanvas">Add</button>
+                <button type="button" class="glass-morphi-button btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              </div>
+            </form>
+          </Offcanvas>
+
         </section>
 
       </div>
