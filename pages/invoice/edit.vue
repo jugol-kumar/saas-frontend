@@ -102,12 +102,7 @@
                             <div class="row w-100 pe-lg-0 pe-1 py-2">
                               <div class="col-lg-5 col-12 mb-lg-0 mb-2 mt-lg-0 mt-2">
                                 <p class="card-text col-title mb-md-50 mb-0">Item</p>
-                                <select class="form-select item-details bg-transparent text-white">
-                                  <option value="App Design">App Design</option>
-                                  <option value="App Customization" selected>App Customization</option>
-                                  <option value="ABC Template">ABC Template</option>
-                                  <option value="App Development">App Development</option>
-                                </select>
+                                <v-select />
                                 <textarea class="form-control mt-2 bg-transparent text-white" rows="1">Customization & Bug Fixes</textarea>
                               </div>
                               <div class="col-lg-3 col-12 my-lg-0 my-2">
@@ -161,7 +156,7 @@
                                     </div>
                                   </div>
                                   <div class="dropdown-divider my-1"></div>
-                                  <div class="d-flex justify-content-between">
+                                  <div class="d-flex align-items-center gap-2 ">
                                     <button type="button" class="primary-button">Apply</button>
                                     <button type="button" class="glass-morphi-button">Cancel</button>
                                   </div>
@@ -257,32 +252,19 @@
               </div>
               <div class="mt-2">
                 <p class="mb-3">Accept payments via</p>
-                <select class="form-select bg-transparent text-white">
-                  <option value="Bank Account">Bank Account</option>
-                  <option value="Paypal">Paypal</option>
-                  <option value="UPI Transfer">UPI Transfer</option>
-                </select>
+                <v-select />
                 <div class="invoice-terms mt-3">
                   <div class="d-flex justify-content-between">
                     <label class="invoice-terms-title mb-0 text-white" for="paymentTerms">Payment Terms</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" checked id="paymentTerms" />
-                      <label class="form-check-label" for="paymentTerms"></label>
-                    </div>
+                    <Switch />
                   </div>
                   <div class="d-flex justify-content-between py-1">
                     <label class="invoice-terms-title mb-0 text-white" for="clientNotes">Client Notes</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" checked id="clientNotes" />
-                      <label class="form-check-label" for="clientNotes"></label>
-                    </div>
+                    <Switch />
                   </div>
                   <div class="d-flex justify-content-between">
                     <label class="invoice-terms-title mb-0 text-white" for="paymentStub">Payment Stub</label>
-                    <div class="form-check form-switch">
-                      <input type="checkbox" class="form-check-input" id="paymentStub" />
-                      <label class="form-check-label" for="paymentStub"></label>
-                    </div>
+                    <Switch />
                   </div>
                 </div>
               </div>
@@ -291,6 +273,7 @@
           </div>
 
           <!-- Send Invoice Sidebar -->
+          <Offcanvas ><Offcanvas/>
           <div class="modal modal-slide-in fade" id="send-invoice-sidebar" aria-hidden="true">
             <div class="modal-dialog sidebar-lg">
               <div class="modal-content p-0">
@@ -367,14 +350,7 @@ We would appreciate payment of this invoice by 05/11/2019</textarea>
                     </div>
                     <div class="mb-1">
                       <label class="form-label" for="payment-method">Payment Method</label>
-                      <select class="form-select" id="payment-method">
-                        <option value="" selected disabled>Select payment method</option>
-                        <option value="Cash">Cash</option>
-                        <option value="Bank Transfer">Bank Transfer</option>
-                        <option value="Debit">Debit</option>
-                        <option value="Credit">Credit</option>
-                        <option value="Paypal">Paypal</option>
-                      </select>
+                      <v-section />
                     </div>
                     <div class="mb-1">
                       <label class="form-label" for="payment-note">Internal Payment Note</label>

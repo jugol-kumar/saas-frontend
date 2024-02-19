@@ -1,4 +1,9 @@
 <script setup>
+const data = [
+  'smtp',
+  'sendmail',
+  'postmark'
+];
 </script>
 <template>
   <div class="row align-items-start py-5 setting-tab">
@@ -19,13 +24,14 @@
         <div class="tab-pane fade show active" id="v-pills-smtp" role="tabpanel" aria-labelledby="v-pills-smtp-tab" tabindex="0">
           <div class="bg-glass-morphi glass-morphi-border p-3 rounded">
             <h3 class="mb-4">SMTP Setting</h3>
-            <div class="mb-4">
-              <label for="mail-driver" class="d-block mb-2">Mail Driver</label>
-              <select >
-                <option>SMTP</option>
-                <option>Send Mail</option>
-                <option>Post Mark</option>
-              </select>
+            <div class="mb-4 row">
+              <div class="col-6">
+                <label for="mail-driver" class="d-block mb-2">Mail Driver</label>
+                <v-select
+                    :options="data"
+                    label="name"
+                />
+              </div>
             </div>
             <div class="mb-4 row">
               <div class="col-6">
