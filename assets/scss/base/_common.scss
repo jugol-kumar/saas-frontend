@@ -435,7 +435,9 @@ Cards
     right: 0;
     opacity: 0;
     transition: all ease-in-out 0.4s;
+    z-index: -9;
     &--toggled {
+        z-index: 1;
         opacity: 1;
         transition: all ease-in-out 0.4s;
     }

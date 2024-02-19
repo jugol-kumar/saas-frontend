@@ -7,7 +7,9 @@
     <main class="main min-vh-100 w-100">
       <div class="main-content">
         <Topbar />
-        <slot />
+        <div class="pt-5">
+          <slot />
+        </div>
       </div>
     </main>
   </div>

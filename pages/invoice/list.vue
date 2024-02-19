@@ -11,7 +11,7 @@ const isToggled = ref(false)
     </NuxtLink>
   </div>
   <div class="bg-glass-morphi glass-morphi-border p-3 my-5 rounded">
-    <table class="table table-borderless">
+    <table class="table table-borderless table-responsive">
       <thead>
       <tr>
         <th scope="col" class="pb-5">#ID</th>
