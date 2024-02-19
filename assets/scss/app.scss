@@ -180,3 +180,12 @@ Table of Contents
 	/ Footer
 ------------------------------------*/
 @import "layouts/footer";
+
+
+
+
+.side-bar{
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
