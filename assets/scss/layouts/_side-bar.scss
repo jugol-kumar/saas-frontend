@@ -11,6 +11,12 @@
   border-radius: 12px;
   border: 0.7px solid #646464;
   overflow-y: scroll;
+  @media #{$tab_device} {
+    left: -300px;
+  }
+  @media #{$small_mobile} {
+    left: -300px;
+  }
   &-top {
     padding: 20px;
     p {

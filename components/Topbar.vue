@@ -101,18 +101,13 @@ onBeforeUnmount(() => {
 </template>
 
 <style scoped>
-.top-bar {
-  transition: all ease-in-out 0.3s;
+.scrolled-header {
   position: fixed;
   width: auto;
   top: 10px;
   left: 310px;
   right: 10px;
   z-index: 999;
-}
-.scrolled-header {
-  transition: all ease-in-out 0.3s;
-  top: 0px;
   backdrop-filter: blur(20px);
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }

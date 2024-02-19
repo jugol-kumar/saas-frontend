@@ -4,7 +4,7 @@
 <template>
   <div class="bg-glass-morphi glass-morphi-border d-flex align-items-center justify-content-between p-4 rounded mt-4">
     <h3>Services</h3>
-    <button class="primary-button"  data-bs-toggle="modal" data-bs-target="#serviceModal">Add New</button>
+    <button class="primary-button"  data-bs-toggle="offcanvas" data-bs-target="#addService">Add New</button>
   </div>
   <div class="row my-4">
     <div class="col-lg-4">
@@ -57,7 +57,7 @@
     </div>
   </div>
 
-  <Modal id="serviceModal" title="Add Service">
+  <Offcanvas id="addService" title="Add Service">
     <form>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label text-white">Services Name</label>
@@ -67,7 +67,11 @@
         <label for="exampleInputEmail1" class="form-label text-white">Order Level</label>
         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       </div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="primary-button">Save</button>
+        <button class="glass-morphi-button">Cancel</button>
+      </div>
     </form>
-  </Modal>
+  </Offcanvas>
 
 </template>
