@@ -1,9 +1,9 @@
 <script setup>
-import DataTable from 'datatables.net-vue3';
-import DataTablesCore from 'datatables.net';
-import 'datatables.net-select';
-import 'datatables.net-responsive';
-DataTable.use(DataTablesCore);
+// import DataTable from 'datatables.net-vue3';
+// import DataTablesCore from 'datatables.net';
+// import 'datatables.net-select';
+// import 'datatables.net-responsive';
+// DataTable.use(DataTablesCore);
 
 const props = defineProps({
   data: Array,
@@ -22,7 +22,7 @@ const props = defineProps({
   </div>
 </template>
 
-<style scoped>
-@import 'datatables.net-dt';
-@import 'datatables.net-bs5';
+<style scoped lang="scss">
+//@import 'datatables.net-dt';
+//@import 'datatables.net-bs5';
 </style>

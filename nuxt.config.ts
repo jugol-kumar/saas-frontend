@@ -5,38 +5,16 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-icon',
   ],
-
-  app: {
-    head:{
-      script: [
-        {
-          src: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js",
-        }
-        // {
-        //   src:"/assets/theme.min.js",
-        //   body: true,
-        //   defer: true,
-        //   type: 'text/javascript'
-        // },
-        // {
-        //   src:"/assets/bootstrap/js/bootstrap.min.js",
-        //   body: true,
-        //   defer: true,
-        //   type: 'text/javascript'
-        // },
-        // {
-        //   src:"/assets/bootstrap/js/bootstrap.bundle.min.js",
-        //   body: true,
-        //   defer: true,
-        //   type: 'text/javascript'
-        // },
-        // {
-        //   src:"/assets/popperjs/js/popper.min.js",
-        //   body: true,
-        //   defer: true,
-        //   type: 'text/javascript'
-        // },
-      ]
+  plugins: [
+    {
+      src: 'plugins/bootstrap.js',
+      mode: 'client'
     }
-  },
+  ],
+  runtimeConfig:{
+    public:{
+      baseUrl: process.env.API_URL,
+      appUrl: process.env.APP_URL,
+    }
+  }
 });

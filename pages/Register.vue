@@ -15,10 +15,13 @@
           <input type="password" class="form-control" id="floatingTextarea">
           <label for="floatingTextarea">Password</label>
         </div>
-        <button class="primary-button w-100">Register</button>
+        <div class="text-center">
+          <Button :isLoading="load">Register</Button>
+        </div>
       </form>
     </div>
   </div>
 </template>
 <script setup lang="ts">
+  const load = false
 </script>

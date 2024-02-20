@@ -335,8 +335,8 @@
           </Offcanvas>
 
           <!-- /Add Payment Sidebar -->
+<!--          </Offcanvas>-->
         </section>
-
       </div>
     </div>
   </div>

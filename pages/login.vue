@@ -1,7 +1,7 @@
 <template>
   <div class="w-100 vh-100 d-flex align-items-center justify-content-center">
       <div class="auth-form">
-        <form class="w-100">
+        <form @submit.prevent="login" class="w-100">
           <h3>Login</h3>
           <div class="form-floating w-100">
             <input type="text" class="form-control w-100" id="floatingTextarea">
@@ -11,15 +11,27 @@
             <input type="password" class="form-control" id="floatingTextarea">
             <label for="floatingTextarea">Password</label>
           </div>
-          <button class="primary-button w-100">Login</button>
+          <div class="text-center">
+            <Button :isLoading="load">Login</Button>
+          </div>
         </form>
       </div>
   </div>
 </template>
 <script setup >
+const load = false;
 
 definePageMeta({
   layout: false
 })
+
+const {sendRequest, loading, error} = useAxios()
+
+
+const login = async () => {
+  const data = await sendRequest();
+}
+
+
 
 </script>
