@@ -16,7 +16,6 @@ export const useAuthStore = defineStore('auth', ()=>{
         const login = await sendRequest("/login",{
             method:"POST",
             body: credential,
-            lazy:true
         })
         await fetchUser();
         return login;
@@ -40,5 +39,5 @@ export const useAuthStore = defineStore('auth', ()=>{
         navigateTo('/')
     }
 
-    return {user, login, signup, isLoggedIn, fetchUser, logout}
+    return {user, login, signup, isLoggedIn, fetchUser, logout, error, loading}
 })
