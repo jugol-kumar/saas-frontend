@@ -1,23 +1,32 @@
 import { defineStore } from 'pinia'
+import useApi from "~/composables/useApi.js";
+import {useTokenStore} from "~/stores/useTokenStore.js";
 
 export const useAuthStore = defineStore('auth', ()=>{
-    const {sendRequest, loading, error} = useAxios()
+    const {sendRequest, loading, error} = useApi();
+    const {setToken, getToken, setIsLogin} = useTokenStore();
 
     const user = ref( null)
     const isLoggedIn = computed(() => !! user.value)
 
     async function fetchUser(){
         const data = await sendRequest("user")
-        user.value = data.value
+        user.value = data?.value
     }
 
     async function login(credential){
-        await sendRequest("/sanctum/csrf-cookie")
-        const login = await sendRequest("/login",{
+        // await sendRequest("/sanctum/csrf-cookie")
+        const login = await sendRequest({
+            url:"login",
             method:"POST",
-            body: credential,
+            data: credential,
         })
-        await fetchUser();
+
+        if (login?.status === 200){
+            setToken(login.data?.token)
+            await fetchUser();
+        }
+
         return login;
     }
 

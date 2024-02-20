@@ -1,13 +1,15 @@
 import axios from 'axios';
+import {useTokenStore} from "~/stores/useTokenStore.js";
 
 export default function useApi() {
-    const config = useRuntimeConfig();
+    const {getToken, token}= useTokenStore();
     const axiosInstance = axios.create({
-        baseURL: config.public.baseUrl,
+        baseURL: useRuntimeConfig().public.baseUrl,
         withCredentials: true,
         xsrfHeaderName: "X-XSRF-TOKEN",
         headers:{
-            Accept : "application/json"
+            Accept : "application/json",
+            Authorization: `Bearer ${token}`
         }
     });
 

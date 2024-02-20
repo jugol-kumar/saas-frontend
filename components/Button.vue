@@ -1,18 +1,17 @@
 <script setup>
-defineProps({
-  isLoading: {
-    type: Boolean,
-    default: false
-  }
+const {isLoading} = defineProps({
+    isLoading: {
+      type: Boolean,
+      default: false
+    }
 })
 </script>
 
 <template>
 <!--  Need To Remove @click event -->
   <button
-      class="button "
+      class="button"
       :class="{'loading' : isLoading}"
-      @click="isLoading = !isLoading"
   >
     <span v-if="!isLoading">
       <slot></slot>
