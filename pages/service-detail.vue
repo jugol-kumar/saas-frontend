@@ -5,7 +5,6 @@ const isToggled = ref(false);
 <template>
   <div class="bg-glass-morphi glass-morphi-border d-flex align-items-center justify-content-between p-4 rounded mt-4">
     <h3>Packages</h3>
-    <button class="primary-button" data-bs-toggle="modal" data-bs-target="#packageModal">Add New</button>
     <button class="primary-button" data-bs-toggle="offcanvas" data-bs-target="#addPackageModal">Add New</button>
   </div>
   <div class="row mt-4 services-detail">

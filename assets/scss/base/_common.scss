@@ -428,6 +428,23 @@ Cards
 }
 
 
+// Invoice Actions
+.invoice-actions {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%);
+    right: 0;
+    opacity: 0;
+    transition: all ease-in-out 0.4s;
+    z-index: -9;
+    &--toggled {
+        z-index: 1;
+        opacity: 1;
+        transition: all ease-in-out 0.4s;
+    }
+}
+
+
 // Need To Remove
 .main-section {
     width: 100%;

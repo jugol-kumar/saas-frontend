@@ -89,26 +89,10 @@ Table of Contents
 
 
 
-
 /*------------------------------------
-	06/ Header
+	Layouts
 ------------------------------------*/
-@import "layouts/header";
-
-/*------------------------------------
-	07/ Side Bar
-------------------------------------*/
-@import "layouts/side-bar";
-
-/*------------------------------------
-	08/ Main Content
-------------------------------------*/
-@import "layouts/main-content";
-
-/*------------------------------------
-	09/ Top Bar
-------------------------------------*/
-@import "layouts/top-bar";
+@import "layouts/layout";
 
 /*------------------------------------
 	10/ Auth Form
@@ -176,16 +160,9 @@ Table of Contents
 
 
 
-/*------------------------------------
-	/ Footer
-------------------------------------*/
-@import "layouts/footer";
-
-
-
-
 .side-bar{
   &::-webkit-scrollbar {
     display: none;
   }
 }
+

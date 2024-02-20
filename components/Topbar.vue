@@ -1,8 +1,23 @@
 <script setup>
+const isScrolled = ref(false);
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 10;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <template>
-  <div class="top-bar">
+  <div class="top-bar"
+        :class="{'scrolled-header': isScrolled}"
+  >
     <ul class="d-flex align-items-center gap-2 top-bar-links">
       <li>
           <NuxtLink to="" class="top-bar-links-link">
@@ -84,3 +99,16 @@
     </ul>
   </div>
 </template>
+
+<style scoped>
+.scrolled-header {
+  position: fixed;
+  width: auto;
+  top: 10px;
+  left: 310px;
+  right: 10px;
+  z-index: 999;
+  backdrop-filter: blur(20px);
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+</style>

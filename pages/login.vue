@@ -11,12 +11,15 @@
             <input type="password" class="form-control" id="floatingTextarea">
             <label for="floatingTextarea">Password</label>
           </div>
-          <button class="primary-button w-100">Login</button>
+          <div class="text-center">
+            <Button :isLoading="load">Login</Button>
+          </div>
         </form>
       </div>
   </div>
 </template>
 <script setup >
+const load = false;
 
 // import {useAuthStore} from "~/stores/useAuthStore.js";
 
