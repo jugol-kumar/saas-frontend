@@ -17,9 +17,9 @@
           <li
               class="paginate_button page-item"
               v-for="(link) in links"
-              :class="{ 'active' : link.active }" :key="link.id"
+              :class="{ 'active' : link?.active }" :key="link.id"
           >
-            <Link :href="link.url" class="page-link" v-html="link.id" />
+            <NuxtLink :to="link.url" class="page-link" v-html="link.id" />
           </li>
 
 
@@ -47,7 +47,7 @@
 <script setup>
 const props = defineProps({
   links: {
-    type: Array
+    type: Object
   },
   from: {
     type: Number,

@@ -4,7 +4,7 @@ export const useTokenStore = defineStore('token', {
     state: () => {
         return {
             token: null,
-            isLogin: false,
+            isLogin:  false,
         }
     },
 
@@ -12,6 +12,11 @@ export const useTokenStore = defineStore('token', {
         setToken(token){
             this.token = token
             this.isLogin = true;
+        },
+
+        removeToken(token){
+            this.token = null
+            this.isLogin = false
         }
     },
     getters:{

@@ -40,6 +40,15 @@
                   <span class="text">Products</span>
                 </NuxtLink>
               </li>
+
+              <li class="my-3">
+                <NuxtLink to="/shop/barcode" class="items-link items-link--sub">
+                  <span class="icon">
+                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
+                  </span>
+                  <span class="text">Barcode</span>
+                </NuxtLink>
+              </li>
               <li class="mb-3">
                 <NuxtLink to="/shop/product-category" class="items-link  items-link--sub">
                   <span class="icon">

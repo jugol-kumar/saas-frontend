@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   css: ['/assets/css/app.css'],
   devtools: {enabled: false},
+  build:{
+    transpile: ['vue-toastification']
+  },
   modules: [
     'nuxt-icon',
     '@pinia/nuxt',

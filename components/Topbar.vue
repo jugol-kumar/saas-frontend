@@ -1,6 +1,6 @@
 <script setup>
 const isScrolled = ref(false);
-
+const { logout } = useAuthStore();
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10;
 };
@@ -88,10 +88,10 @@ onBeforeUnmount(() => {
                 <Icon name="material-symbols:settings-b-roll-rounded" class="icon" /> Setting
               </NuxtLink>
             </li>
-            <li>
-              <NuxtLink class="dropdown-item d-flex align-items-center gap-2" to="dashboard/profile">
+            <li class="cursor-pointer">
+              <span @click="logout" class="cursor-pointer dropdown-item d-flex align-items-center gap-2" to="dashboard/profile">
                 <Icon name="material-symbols:logout" class="icon" /> Logout
-              </NuxtLink>
+              </span>
             </li>
           </ul>
         </div>
