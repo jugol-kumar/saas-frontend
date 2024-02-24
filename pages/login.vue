@@ -37,7 +37,4 @@ const from = ref({
 
 const {login, error, loading} = useAuthStore();
 const handelLogin = async () => await login(from.value)
-
-
-
 </script>
