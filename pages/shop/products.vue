@@ -41,7 +41,8 @@
 </script>
 
 
-<template><div class="d-flex align-items-center justify-content-between py-5">
+<template>
+  <div class="d-flex align-items-center justify-content-between py-5">
     <h3>All Products</h3>
     <select v-model="perPage">
       <option value="2">2</option>

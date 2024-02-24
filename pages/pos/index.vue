@@ -1,5 +1,4 @@
 <script setup>
-
 definePageMeta({
   layout:false
 })
@@ -39,12 +38,12 @@ definePageMeta({
                 <label for="gadget" class="bg-glass-morphi glass-morphi-border text-white py-1 px-3 rounded-4">Gadget</label>
               </div>
               <div class="d-flex align-items-center justify-content-between">
-                <NuxtLink to="" class="me-2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
+                <div class="me-2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
                   Products
-                </NuxtLink>
-                <NuxtLink to="" class="ms2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
+                </div>
+                <div class="ms2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
                   Services
-                </NuxtLink>
+                </div>
               </div>
             </div>
 
