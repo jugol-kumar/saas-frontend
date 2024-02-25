@@ -1,6 +1,7 @@
 <script setup>
 
   import {useToast} from "vue-toastification";
+  import SearchSelect from "~/components/SearchSelect.vue";
   const toast = useToast()
 
   definePageMeta({
@@ -28,7 +29,7 @@
         headers:{
           authorization: `Bearer ${useTokenStore().token}`
         }
-      } ), {
+      }), {
         watch: [
           page,
           searchProduct,
@@ -36,10 +37,7 @@
         ]
       },
   );
-  const setPage = (value) => {
-    page.value = value
-    console.log(value)
-  }
+  const setPage = (value) => page.value = value
 
   watch(productError, ()=>{
     if(productError?.value){
@@ -74,15 +72,16 @@
     <div class="mt-3">
       <div class="row" style="min-height: 100vh">
         <div class="col-lg-8">
+          <SearchSelect/>
           <div class="pos-filter">
-            <div class="d-flex align-items-center">
-              <input type="text"
-                     class="w-100 p-2 rounded glass-morphi-border bg-glass-morphi"
-                     v-model="searchProduct"
-                     @input="skuSearch($event.target.value)"
-                     placeholder="search product" >
-              <Icon name="material-symbols:search" size="20" class="ms-n4" />
-            </div>
+<!--            <div class="d-flex align-items-center">-->
+<!--              <input type="text"-->
+<!--                     class="w-100 p-2 rounded glass-morphi-border bg-glass-morphi"-->
+<!--                     v-model="searchProduct"-->
+<!--                     @input="skuSearch($event.target.value)"-->
+<!--                     placeholder="search product" >-->
+<!--              <Icon name="material-symbols:search" size="20" class="ms-n4" />-->
+<!--            </div>-->
             <div class="d-flex align-items-center justify-content-between py-2">
               <div class="d-flex align-items-center gap-2 py-3">
                 <input type="radio" name="category" value="all-category" id="all-category" hidden checked>
@@ -138,9 +137,10 @@
                 Add New Product
               <Icon name="material-symbols:add" class="icon" size="20" />
               </button>
-              <div class="scan glass-morphi-border bg-glass-morphi">
+              <button class="ms-2 bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5">
                 <p>Scan QR Code</p>
-              </div>
+                <Icon name="material-symbols:camera" class="icon" size="20" />
+              </button>
             </div>
             <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg overflow-y-scroll mb-3" style="max-height: 48vh">
               <table class="w-100">
@@ -221,11 +221,11 @@
 <style>
 .pos-enter-active,
 .pos-leave-active {
-  transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-out;
 }
 .pos-enter-from,
 .pos-leave-to {
   opacity: 0;
-  filter: blur(1rem);
+  filter: blur(15px);
 }
 </style>
