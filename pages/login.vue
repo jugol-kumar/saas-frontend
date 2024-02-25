@@ -1,40 +1,59 @@
+
+<script setup >
+
+  definePageMeta({
+    layout: false,
+    middleware: ['guest']
+  })
+
+  const { setToken } = useTokenStore();
+
+  const from = ref({
+    email: "customer@customer.com",
+    password: "12345678",
+    remember: false
+  })
+
+
+  const isPending = ref(false)
+  const errors = ref(null)
+
+  const {login} = useAuthStore();
+  const handelLogin = async () => {
+    isPending.value = true;
+    const {data, pending, error} = await login(from.value)
+    isPending.value = pending
+    errors.value = error
+
+    if (!error.value){
+      setToken(data.value?.token)
+      return navigateTo('/dashboard')
+    }
+  }
+
+
+</script>
+
 <template>
   <div class="w-100 vh-100 d-flex align-items-center justify-content-center">
       <div class="auth-form">
-        <span class="text-white">{{ error?.data }}</span>
+        <span class="text-danger">{{ errors?.value?.data?.message }}</span>
         <form @submit.prevent="handelLogin" class="w-100">
           <h3>Login</h3>
           <div class="w-100">
             <label for="email" class="mb-2">Email</label>
-            <input v-model="from.email" type="email" class="form-control w-100 p-2" id="floatingTextarea">
+            <input v-model="from.email" type="email" class="form-control w-100 p-2" id="email">
           </div>
           <div class="w-100">
             <label for="password" class="mb-2">Password</label>
-            <input v-model="from.password" type="password" class="form-control w-100 p-2" id="floatingTextarea">
+            <input v-model="from.password" type="password" class="form-control w-100 p-2" id="password">
           </div>
           <div class="text-center">
-            <span class="text-white">{{ loading }}</span>
-            <Button>Login</Button>
+            <Button :is-loading="isPending">Login</Button>
           </div>
         </form>
       </div>
   </div>
 </template>
-<script setup >
-import {useAuthStore} from "~/stores/useAuthStore.js";
-import useApi from "~/composables/useApi.js";
-
-definePageMeta({
-  layout: false
-})
 
 
-const from = ref({
-  email: "customer@customer.com",
-  password: "12345678",
-  remember: false
-})
-
-const {login, error, loading} = useAuthStore();
-const handelLogin = async () => await login(from.value)
-</script>

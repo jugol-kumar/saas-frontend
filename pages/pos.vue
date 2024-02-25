@@ -6,16 +6,18 @@ definePageMeta({
 </script>
 
 <template>
-  <div class="p-2 pos">
+  <div class="p-2 pos" style="max-height: 100vh;overflow: hidden">
     <div class="bg-glass-morphi glass-morphi-border p-3 rounded d-flex align-items-center justify-content-between">
       <p>Total Amount: <span class="fw-semibold">560</span></p>
       <div class="d-flex align-items-center gap-3">
-        <NuxtLink to="/" class="bg-glass-morphi width-30px height-30px d-flex align-items-center justify-content-center glass-morphi-border rounded-3 primary-bg-hover">
-          <Icon name="material-symbols:android-google-home" size="20" class="icon" />
-        </NuxtLink>
-        <NuxtLink to="/dashboard" class="d-flex align-items-center gap-2 text-white bg-glass-morphi glass-morphi-border py-1 px-3 rounded-4 pe-2 primary-bg-hover">
+        <button class="d-flex align-items-center gap-2 text-white bg-glass-morphi glass-morphi-border py-1 px-3 rounded-4 pe-2 primary-bg-hover">
           Close Terminal
           <Icon name="material-symbols:close-rounded" size="20" />
+        </button>
+
+        <NuxtLink to="/dashboard" class="bg-glass-morphi py-1 px-3 pe-2 rounded-5 d-flex gap-2 align-items-center justify-content-center glass-morphi-border primary-bg-hover">
+          Dashboard
+          <Icon name="material-symbols:android-google-home" size="20" class="icon" />
         </NuxtLink>
       </div>
     </div>
@@ -47,10 +49,8 @@ definePageMeta({
                 </NuxtLink>
               </div>
             </div>
-
           </div>
-          <div class="row overflow-y-scroll" style="max-height: 80vh">
-            <ProductCard />
+          <div class="row row-cols-5 rounded">
             <ProductCard />
             <ProductCard />
             <ProductCard />
@@ -64,7 +64,7 @@ definePageMeta({
           </div>
         </div>
         <div class="col-lg-4 d-flex flex-column justify-content-between">
-          <div>
+          <div >
             <div class="d-flex align-items-center mb-4">
               <button class="bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5">
                 Add New Product
@@ -74,8 +74,8 @@ definePageMeta({
                 <p>Scan QR Code</p>
               </div>
             </div>
-            <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg">
-              <table class="w-100 overflow-y-scroll">
+            <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg overflow-y-scroll mb-3" style="max-height: 48vh">
+              <table class="w-100">
                 <thead>
                 <tr>
                   <th class="p-2">NAME</th>
@@ -102,52 +102,46 @@ definePageMeta({
                   <td class="p-2">$56</td>
                   <td class="p-2">$61</td>
                   <td class="p-2">
-                    <span class="delete">
+                    <span class="primary-icon-button">
                     <Icon name="material-symbols:delete-outline"/>
                     </span>
                   </td>
                 </tr>
-                <tr>
-                  <td class="p-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <img src="/images/product.png" class="width-40px height-40px rounded" alt="">
-                      <h4 class="fs-6">Apple Watch</h4>
-                    </div>
-                  </td>
-                  <td class="p-2">
-                    qty
-                  </td>
-                  <td class="p-2">
-                    <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span>
-                  </td>
-                  <td class="p-2">$56</td>
-                  <td class="p-2">$61</td>
-                  <td class="p-2">
-                    <span class="delete">
-                    <Icon name="material-symbols:delete-outline"/>
-                    </span>
-                  </td>
-                </tr>
+
+
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="bg-glass-morphi glass-morphi-border rounded d-flex justify-content-between p-4 blur-bg mt-5">
-            <div>
-              <div class="d-flex gap-2">
+          <div>
+            <div class="bg-glass-morphi glass-morphi-border rounded d-flex justify-content-between p-4 blur-bg">
+              <div>
+                <div class="d-flex gap-2">
               <span class="p-2 glass-morphi-border bg-glass-morphi rounded d-flex align-items-center justify-content-center">
                 <Icon name="ph:currency-dollar-simple-thin" />
               </span>
-                <input type="number" class="p-2 glass-morphi-border shadow rounded" placeholder="Discount">
+                  <input type="number" class="p-2 glass-morphi-border shadow rounded" placeholder="Discount">
+                </div>
+                <button class="primary-button mt-3">PAY</button>
               </div>
-              <button class="primary-button mt-3">PAY</button>
+              <div class="d-flex flex-column align-items-end">
+                <h3 class="fs-5">Sub Total: $0.00</h3>
+                <h4 class="fs-6">Total: $0.00</h4>
+                <button class="glass-morphi-button mt-3">Empty Cart</button>
+              </div>
             </div>
-            <div class="d-flex flex-column align-items-end">
-              <h3 class="fs-5">Sub Total: $0.00</h3>
-              <h4 class="fs-6">Total: $0.00</h4>
-              <button class="glass-morphi-button mt-3">Empty Cart</button>
+            <div class="d-flex align-items-center gap-3 my-3">
+              <button class="primary-red-button d-flex align-items-center gap-2 fw-medium">
+                <Icon name="material-symbols:edit-outline" size="20" />
+                Hold
+              </button>
+              <button class="primary-red-button d-flex align-items-center gap-2 fw-medium">
+                <Icon name="material-symbols:edit-document-outline-rounded" size="20" />
+                Quotation
+              </button>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
-import useApi from "~/composables/useApi.js";
+import useApi from "~/composables/useApi.ts";
 import {useTokenStore} from "~/stores/useTokenStore.js";
 
-export const useAuthStore = defineStore('auth', ()=>{
+export const jsUseAuthStore = defineStore('auth', ()=>{
     const {sendRequest, loading, error} = useApi();
     const {setToken, getToken, setIsLogin} = useTokenStore();
 
@@ -25,6 +25,7 @@ export const useAuthStore = defineStore('auth', ()=>{
         if (login?.status === 200){
             setToken(login.data?.token)
             await fetchUser();
+            navigateTo('/dashboard')
         }
 
         return login;

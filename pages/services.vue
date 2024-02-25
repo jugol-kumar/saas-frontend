@@ -1,5 +1,14 @@
 <script setup>
+
+definePageMeta({
+  middleware:['auth']
+})
+
+const { data: services } = await useFetch('/customer/service');
+
   const isToggled = ref(false);
+
+
 </script>
 <template>
   <div class="bg-glass-morphi glass-morphi-border d-flex align-items-center justify-content-between p-4 rounded mt-4">
@@ -7,6 +16,7 @@
     <button class="primary-button"  data-bs-toggle="offcanvas" data-bs-target="#addService">Add New</button>
   </div>
   <div class="row my-4">
+    {{ services }}
     <div class="col-lg-4">
       <div class="bg-glass-morphi glass-morphi-border p-3 rounded position-relative mb-4 service-card service-card--toggled">
         <button @click="isToggled = !isToggled" class="position-absolute" style="top:10px;right:10px;">

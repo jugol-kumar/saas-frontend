@@ -17,11 +17,12 @@ export default function useApi() {
 
     const loading = ref(false);
     const error = ref(null);
-    const sendRequest = async (config) => {
+    const sendRequest = async (config: any) => {
         loading.value = true;
         try {
             return await axiosInstance(config);
         } catch (err) {
+            // @ts-ignore
             error.value = err?.response;
         } finally {
             loading.value = false;
