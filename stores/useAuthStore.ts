@@ -35,6 +35,7 @@ export default defineStore('auth', ()=>{
         const {data, error} = await useApiFetch("logout",{method:"POST"})
         if(data.value) {
             useTokenStore().removeToken()
+            // @ts-ignore
             toast.success(data?.value?.message)
             navigateTo('/login')
         }

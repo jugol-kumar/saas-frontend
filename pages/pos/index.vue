@@ -1,8 +1,59 @@
 <script setup>
 
-definePageMeta({
-  layout:false
-})
+  import {useToast} from "vue-toastification";
+  const toast = useToast()
+
+  definePageMeta({
+    layout:false,
+    middleware:['auth']
+  })
+
+  const tab = ref('product')
+
+
+  const searchProduct = ref('');
+  const page = ref(1);
+  const perPage = ref(3)
+
+  const { data: products, error:productError, pending } = useLazyAsyncData(
+      'products',
+      () => $fetch( `customer/product`, {
+        method: 'GET',
+        baseURL: useRuntimeConfig().public.baseUrl,
+        params: {
+          page: page.value,
+          search: searchProduct.value,
+          perPage: perPage.value
+        },
+        headers:{
+          authorization: `Bearer ${useTokenStore().token}`
+        }
+      } ), {
+        watch: [
+          page,
+          searchProduct,
+          perPage
+        ]
+      },
+  );
+  const setPage = (value) => {
+    page.value = value
+    console.log(value)
+  }
+
+  watch(productError, ()=>{
+    if(productError?.value){
+      toast.error(productError?.value?.data?.message)
+    }
+  })
+
+  watch(products, (product)=>{
+    console.log(product)
+  }, {deep:true})
+
+  const skuSearch = (sku) =>{
+    console.log(sku)
+  }
 </script>
 
 <template>
@@ -14,7 +65,6 @@ definePageMeta({
           Close Terminal
           <Icon name="material-symbols:close-rounded" size="20" />
         </button>
-
         <NuxtLink to="/dashboard" class="bg-glass-morphi py-1 px-3 pe-2 rounded-5 d-flex gap-2 align-items-center justify-content-center glass-morphi-border primary-bg-hover">
           Dashboard
           <Icon name="material-symbols:android-google-home" size="20" class="icon" />
@@ -22,11 +72,15 @@ definePageMeta({
       </div>
     </div>
     <div class="mt-3">
-      <div class="row">
+      <div class="row" style="min-height: 100vh">
         <div class="col-lg-8">
           <div class="pos-filter">
             <div class="d-flex align-items-center">
-              <input type="text" class="w-100 p-2 rounded glass-morphi-border bg-glass-morphi" placeholder="search product" >
+              <input type="text"
+                     class="w-100 p-2 rounded glass-morphi-border bg-glass-morphi"
+                     v-model="searchProduct"
+                     @input="skuSearch($event.target.value)"
+                     placeholder="search product" >
               <Icon name="material-symbols:search" size="20" class="ms-n4" />
             </div>
             <div class="d-flex align-items-center justify-content-between py-2">
@@ -41,28 +95,42 @@ definePageMeta({
                 <label for="gadget" class="bg-glass-morphi glass-morphi-border text-white py-1 px-3 rounded-4">Gadget</label>
               </div>
               <div class="d-flex align-items-center justify-content-between">
-                <NuxtLink to="" class="me-2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
+                <div :class="tab === 'product' ? 'primary-red-button' : 'glass-morphi-border bg-glass-morphi'"
+                     class="cursor-pointer w-50  py-1 px-3 rounded-4 text-center text-white"
+                     @click="tab = 'product'"
+                >
                   Products
-                </NuxtLink>
-                <NuxtLink to="" class="ms2 w-50 glass-morphi-border bg-glass-morphi py-1 px-3 rounded-4 text-center">
+                </div>
+                <div :class="tab === 'service' ? 'primary-red-button' : 'glass-morphi-border bg-glass-morphi'"
+                     class="cursor-pointer ms-2 w-50  py-1 px-3 rounded-4 text-center text-white"
+                     @click="tab = 'service'"
+                >
                   Services
-                </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
-          <div class="row row-cols-5 rounded">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-          </div>
+          <Transition  name="pos" >
+            <div class="row" v-show="tab === 'service'">
+              <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dignissimos facilis illum laboriosam nam numquam omnis reprehenderit tempore veritatis. A eum eveniet ex ipsam libero omnis optio praesentium, quaerat repudiandae!</h2>
+            </div>
+          </Transition >
+          <Transition name="pos">
+            <div v-show="tab === 'product'">
+              <div v-if="products?.data.length < 1 && !pending">
+                <h2>Product Not Found...</h2>
+              </div>
+              <div v-if="pending">
+                <h2>Pending....</h2>
+              </div>
+              <div class="row row-cols-5" v-else>
+                <ProductCard :info="item" v-for="item in products?.data"/>
+              </div>
+              <Pagination :pagination="products" @changePage="setPage"/>
+            </div>
+          </Transition>
         </div>
+
         <div class="col-lg-4 d-flex flex-column justify-content-between">
           <div >
             <div class="d-flex align-items-center mb-4">
@@ -149,3 +217,15 @@ definePageMeta({
 
 </template>
 
+
+<style>
+.pos-enter-active,
+.pos-leave-active {
+  transition: all 0.4s ease-in-out;
+}
+.pos-enter-from,
+.pos-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+</style>

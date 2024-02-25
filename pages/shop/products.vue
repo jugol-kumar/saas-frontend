@@ -13,6 +13,7 @@
       () => $fetch( `customer/product`, {
         method: 'GET',
         baseURL: useRuntimeConfig().public.baseUrl,
+
         params: {
           page: page.value,
           search: search.value,
@@ -28,6 +29,7 @@
           perPage
         ]
       },
+
   );
 
 
@@ -41,7 +43,8 @@
 </script>
 
 
-<template><div class="d-flex align-items-center justify-content-between py-5">
+<template>
+  <div class="d-flex align-items-center justify-content-between py-5">
     <h3>All Products</h3>
     <select v-model="perPage">
       <option value="2">2</option>
@@ -82,7 +85,6 @@
             </div>
 
 
-<!--            <span class="glass-morphi-button rounded-5 py-1 px-3 mt-2">Gadget</span>-->
             <div class="mt-3">
               <p class="d-flex aling-items-center gap-2">PRICE:<span class="fw-bold">{{ product.price }} ৳</span></p>
             </div>
@@ -107,23 +109,24 @@
     </div>
   </div>
 
+  <div class="row">
+    <Pagination :pagination="products"/>
+    <div class="col-sm-12 col-md-7">
+      <div class="d-flex align-items-center justify-content-end">
+        <ul class="pagination flex p-2  rounded gap-2 border text-white">
+          <li
+              class="paginate_button page-item"
+              v-for="paginations in products?.meta?.last_page"
+              :class="{'active' : paginations === products?.meta.current_page}"
+              :key="'padingate'+paginations"
+          >
+            <span @click="page = paginations" class="page-link" v-html="paginations" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col-sm-12 col-md-7">-->
-<!--      <div class="d-flex align-items-center justify-content-end">-->
-<!--        <ul class="pagination flex p-2  rounded gap-2 border text-white">-->
-<!--          <li-->
-<!--              class="paginate_button page-item"-->
-<!--              v-for="paginations in products.meta?.last_page"-->
-<!--              :class="{'active' : paginations === products.meta.current_page}"-->
-<!--              :key="'padingate'+paginations"-->
-<!--          >-->
-<!--            <span @click="page = paginations" class="page-link" v-html="paginations" />-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 
 
 <!--  <Pagination :links="products.links" :from="products.from" :to="products.to" :total="products.total"/>-->
