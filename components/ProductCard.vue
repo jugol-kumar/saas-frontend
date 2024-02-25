@@ -1,4 +1,7 @@
 <script setup>
+  const {info} = defineProps({
+    info:Object
+  })
 </script>
 <template>
   <div class="col-lg-3 mb-4">
@@ -9,10 +12,12 @@
       </NuxtLink>
       <div class="product-card-body">
         <h4>
-          <NuxtLink to="">Apple Watch</NuxtLink>
+          <NuxtLink to="">{{ info?.name }}</NuxtLink>
         </h4>
         <div class="d-flex align-items-center justify-content-between">
-          <span>$50</span>
+          <span>{{ info?.price }}</span>
+          |
+          <span>{{ info?.sku }}</span>
           <div class="d-flex align-items-center gap-2">
             <NuxtLink to="" class="primary-icon-button">
               <Icon name="material-symbols:box-edit-outline" />

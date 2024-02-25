@@ -82,7 +82,6 @@
             </div>
 
 
-<!--            <span class="glass-morphi-button rounded-5 py-1 px-3 mt-2">Gadget</span>-->
             <div class="mt-3">
               <p class="d-flex aling-items-center gap-2">PRICE:<span class="fw-bold">{{ product.price }} ৳</span></p>
             </div>
@@ -109,6 +108,7 @@
 
 
   <div class="row">
+    <Pagination :pagination="products"/>
     <div class="col-sm-12 col-md-7">
       <div class="d-flex align-items-center justify-content-end">
         <ul class="pagination flex p-2  rounded gap-2 border text-white">
