@@ -8,62 +8,40 @@ export const useCartStore = defineStore('cart', {
     }),
 
     actions: {
-        addToCart(product) {
+        addToCart(data) {
             const index = this.cart.findIndex(item => {
-                return item?.selectSku.id === product?.selectSku.id
+                return item?.sku === data?.sku
             });
-            console.log("index", index)
             if (index > -1) {
-                this.cart[index].selectSku.selectQty++;
+                this.cart[index].buyQty++;
+                toast.info("Quantity Updated...")
             } else {
-                this.cart.push(product);
+                this.cart.push(data);
+                toast.info("Added Success...")
             }
-            this.setInLocalStorage();
-            toast.info("Added To Cart...")
         },
+
         removeFromCart(item) {
             const index = this.cart.indexOf(item);
             if (index > -1) {
                 this.cart.splice(index, 1);
-                localStorage.setItem('cart', JSON.stringify(this.cart));
             }
+            toast.info("Remove Success...")
+        },
 
-            toast.info("Remove From Cart...")
-        },
-        incrementQty(id) {
-            const index = this.cart.findIndex(item => {
-                return item?.selectSku.id === id
-            });
-            this.cart[index].selectSku.selectQty++;
-            this.setInLocalStorage();
-            toast.info("Quantity Updated...")
-        },
         decrementQty(id) {
             const index = this.cart.findIndex(item => {
                 return item?.selectSku.id === id
             });
-
             if (this.cart[index].selectSku.selectQty > 1) {
                 this.cart[index].selectSku.selectQty--;
             }
-
-
-            this.setInLocalStorage();
             toast.info("Quantity Updated...")
         },
-        setInLocalStorage() {
-            localStorage.setItem('cart', JSON.stringify(this.cart));
-        },
-        initCart() {
-            const storedCart = localStorage.getItem('cart');
-            if (storedCart) {
-                this.cart = JSON.parse(storedCart);
-            }
-        },
+
         clearCart() {
             this.cart = [];
-            localStorage.removeItem("cart");
-            this.initCart();
+            toast.info("Empty Cart Store...")
         }
     },
 
@@ -75,8 +53,9 @@ export const useCartStore = defineStore('cart', {
             return this.cart;
         },
         getCartTotalPrice() {
-            return this.cart.reduce((total, item) => total + item.selectSku?.price * item.selectSku?.selectQty, 0)
+            return this.cart.reduce((total, item) => total + item.price * item.buyQty, 0)
         }
     },
+    persist:true
 })
 

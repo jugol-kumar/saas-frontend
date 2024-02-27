@@ -1,12 +1,11 @@
 <template>
-    <v-select label="name" :filterable="false" :options="options" @search="onSearch">
-<!--      <template slot="option" slot-scope="option">-->
-<!--        <div class="d-center">-->
-<!--          <img :src='option.owner.avatar_url'/>-->
-<!--          {{ option }}-->
-<!--        </div>-->
-<!--      </template>-->
-
+    <v-select label="name"
+              :filterable="false"
+              @keyup.enter="searchByScan"
+              :options="options"
+              v-model="selectedItem"
+              @update:modelValue="setToCart"
+              @search="onSearch">
 
       <template v-slot:option="option">
         <li class="d-flex align-items-start py-1 gap-3">
@@ -15,7 +14,7 @@
           </div>
           <div class="d-flex align-items-center justify-content-between w-100">
             <div class="me-1 d-flex flex-column">
-              <strong class="mb-25 text-capitalize">{{ option.name }}</strong>
+              <strong class="mb-25 text-capitalize">{{ option?.name }}</strong>
               <span>{{ option?.price }} ৳</span>
             </div>
           </div>
@@ -26,10 +25,17 @@
 
 <script setup>
     import {debounce} from "lodash";
+    import {useToast} from "vue-toastification";
+    import {useCartStore} from "~/stores/useCartStore.js";
+
+    const {error, success} = useToast();
+    const {addToCart} = useCartStore();
 
     const props = defineProps({
       products:Array
     })
+
+    const selectedItem = ref(null)
 
     const options = ref(props.products ?? []);
     const onSearch = (search, loading) => {
@@ -40,23 +46,51 @@
     };
 
     const searchDebounced = debounce((search, loading) => {
-      fetch(`${useRuntimeConfig().public.baseUrl+'customer/product'}?search=${search}`,{
-        headers:{
-          authorization: `Bearer ${useTokenStore().token}`
-        }
-      })
-      .then(res => res.json())
-      .then(json => {
-        // if (json.data.length > 1){
-          options.value = json.data;
-        // }
-        loading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        loading(false);
-      });
-    }, 350)
+      if(search.length > 3){
+        fetch(`${useRuntimeConfig().public.baseUrl+'customer/product'}?search=${search}`,{
+          headers:{
+            authorization: `Bearer ${useTokenStore().token}`
+          }
+        })
+            .then(res => res.json())
+            .then(json => {
+              if(json.data?.length < 1){
+                error('Not Data Found...')
+              }
+              // if (json.data.length === 1){
+              //   success('Added To Pos...')
+              // }
+              // if (json.data.length > 2){
+                options.value = json.data;
+              // }
+
+              loading(false);
+            })
+            .catch(err => {
+              error('Error fetching data:')
+              console.error('Error fetching data:', err);
+              loading(false);
+            });
+      }
+
+    }, 200)
+
+    const searchByScan = (event) =>{
+      //
+    }
+
+
+    const setToCart = (event) => {
+      if(event) addToCart({...event, 'buyQty': 1})
+
+      selectedItem.value = null;
+
+    }
+
+
+
+
+
 
 </script>
 
