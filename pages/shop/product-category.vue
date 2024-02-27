@@ -1,4 +1,6 @@
 <script setup>
+
+const categories = ref(null);
 </script>
 
 <template>

@@ -13,7 +13,10 @@
 
   <div class="row">
     <div class="col-lg-3 col-12">
-      <div class="bg-glass-morphi glass-morphi-border d-flex flex-column align-items-center gap-3 px-3 py-4 rounded">
+      <div class="bg-glass-morphi glass-morphi-border d-flex flex-column align-items-center gap-3 px-3 py-4 rounded position-relative">
+        <NuxtLink to="/shop/customer/detail" class="position-absolute bg-glass-morphi glass-morphi-border width-30px height-30px rounded d-flex align-items-center justify-content-center" style="top: 10px;right:10px">
+          <Icon name="material-symbols-light:visibility-outline-rounded" size="18" />
+        </NuxtLink>
         <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" class="width-60px height-60px rounded-5" alt="">
         <div>
           <h4>Customer Name</h4>

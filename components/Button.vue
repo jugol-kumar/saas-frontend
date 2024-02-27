@@ -24,9 +24,10 @@ const {isLoading} = defineProps({
 
 <style scoped>
 .button {
+  border-radius: 4px;
   position: relative;
   height: 50px;
-  width: 200px;
+  width: 180px;
   background-image: none;
   border: none;
   outline: none;

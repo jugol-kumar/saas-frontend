@@ -154,8 +154,8 @@ definePageMeta({
         </div>
       </div>
     </div>
-
   </div>
+  <PosInvoice />
 </template>
 <style scoped>
 

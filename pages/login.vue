@@ -40,13 +40,13 @@
         <span class="text-danger">{{ errors?.value?.data?.message }}</span>
         <form @submit.prevent="handelLogin" class="w-100">
           <h3>Login</h3>
-          <div class="form-floating w-100">
-            <input v-model="from.email" type="text" class="form-control w-100" id="floatingTextarea">
-            <label for="floatingTextarea">Email</label>
+          <div class="w-100">
+            <label for="email" class="mb-2">Email</label>
+            <input v-model="from.email" type="email" class="form-control w-100 p-2" id="email">
           </div>
-          <div class="form-floating">
-            <input v-model="from.password" type="password" class="form-control" id="floatingTextarea">
-            <label for="floatingTextarea">Password</label>
+          <div class="w-100">
+            <label for="password" class="mb-2">Password</label>
+            <input v-model="from.password" type="password" class="form-control w-100 p-2" id="password">
           </div>
           <div class="text-center">
             <Button :is-loading="isPending">Login</Button>
@@ -55,3 +55,5 @@
       </div>
   </div>
 </template>
+
+

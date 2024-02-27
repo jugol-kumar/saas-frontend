@@ -13,6 +13,7 @@
       () => $fetch( `customer/product`, {
         method: 'GET',
         baseURL: useRuntimeConfig().public.baseUrl,
+
         params: {
           page: page.value,
           search: search.value,
@@ -28,6 +29,7 @@
           perPage
         ]
       },
+
   );
 
 
@@ -57,6 +59,7 @@
       <Icon name="material-symbols:playlist-add-rounded" size="20" /> Add Product
     </button>
   </div>
+
 
   <div class="" v-if="pending">
     <h2>Pending.......</h2>
@@ -106,24 +109,10 @@
     </div>
   </div>
 
-
   <div class="row">
     <Pagination :pagination="products"/>
-    <div class="col-sm-12 col-md-7">
-      <div class="d-flex align-items-center justify-content-end">
-        <ul class="pagination flex p-2  rounded gap-2 border text-white">
-          <li
-              class="paginate_button page-item"
-              v-for="paginations in products.meta?.last_page"
-              :class="{'active' : paginations === products.meta.current_page}"
-              :key="'padingate'+paginations"
-          >
-            <span @click="page = paginations" class="page-link" v-html="paginations" />
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
+
 
 
 <!--  <Pagination :links="products.links" :from="products.from" :to="products.to" :total="products.total"/>-->

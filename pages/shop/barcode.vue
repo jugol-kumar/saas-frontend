@@ -29,7 +29,7 @@
     <div class="col-md-8 mx-auto">
       <div class="card border-top-5">
         <div class="card-body">
-          <h2>Select Products For Print Label</h2>
+          <h2 class="text-black">Select Products For Print Label</h2>
           <v-select>
 
           </v-select>
