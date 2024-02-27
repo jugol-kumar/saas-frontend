@@ -10,22 +10,26 @@
         <span>12 QTY</span>
         <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="rounded mb-1" alt="">
       </NuxtLink>
-      <div class="product-card-body">
+      <div class="product-card-body mt-n2">
         <h4>
           <NuxtLink to="">{{ info?.name }}</NuxtLink>
         </h4>
-        <div class="d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center justify-content-between py-2">
           <span>{{ info?.price }}</span>
           |
           <span>{{ info?.sku }}</span>
-          <div class="d-flex align-items-center gap-2">
-            <NuxtLink to="" class="primary-icon-button">
-              <Icon name="material-symbols:box-edit-outline" />
-            </NuxtLink>
-            <NuxtLink to="" class="primary-icon-button">
-              <Icon name="material-symbols:delete-outline" />
-            </NuxtLink>
-          </div>
+
+        </div>
+        <div class="d-flex align-items-center gap-2 justify-content-end position-relative z-3">
+          <NuxtLink to="" class="primary-icon-button">
+            <Icon name="material-symbols:box-edit-outline" />
+          </NuxtLink>
+          <NuxtLink to="" class="primary-icon-button">
+            <Icon name="material-symbols:delete-outline" />
+          </NuxtLink>
+          <NuxtLink to="" class="primary-icon-button">
+            <Icon name="material-symbols:shopping-cart-checkout-rounded" />
+          </NuxtLink>
         </div>
       </div>
     </div>

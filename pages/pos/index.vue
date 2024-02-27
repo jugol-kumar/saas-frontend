@@ -9,8 +9,8 @@
     middleware:['auth']
   })
 
-  const tab = ref('product')
-
+  const tab = ref('product');
+  console.log(tab.value);
 
   const searchProduct = ref('');
   const page = ref(1);
@@ -70,7 +70,7 @@
       </div>
     </div>
     <div class="mt-3">
-      <div class="row" style="min-height: 100vh">
+      <div class="row">
         <div class="col-lg-8">
           <SearchSelect/>
           <div class="pos-filter">
@@ -110,12 +110,12 @@
             </div>
           </div>
           <Transition  name="pos" >
-            <div class="row" v-show="tab === 'service'">
+            <div class="row" v-if="tab === 'service'">
               <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis dignissimos facilis illum laboriosam nam numquam omnis reprehenderit tempore veritatis. A eum eveniet ex ipsam libero omnis optio praesentium, quaerat repudiandae!</h2>
             </div>
           </Transition >
           <Transition name="pos">
-            <div v-show="tab === 'product'">
+            <div v-if="tab === 'product'" class="d-flex flex-column justify-content-between" style="height: 70vh">
               <div v-if="products?.data.length < 1 && !pending">
                 <h2>Product Not Found...</h2>
               </div>
@@ -130,55 +130,128 @@
           </Transition>
         </div>
 
-        <div class="col-lg-4 d-flex flex-column justify-content-between">
+        <div class="col-lg-4 d-flex flex-column justify-content-between" style="height: 85vh;">
           <div >
             <div class="d-flex align-items-center mb-4">
-              <button class="bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5">
+              <button class="bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-1 rounded-5" style="font-size: 14px;">
                 Add New Product
               <Icon name="material-symbols:add" class="icon" size="20" />
               </button>
-              <button class="ms-2 bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5">
+              <button class="ms-2 bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5" style="font-size: 14px;">
                 <p>Scan QR Code</p>
                 <Icon name="material-symbols:camera" class="icon" size="20" />
               </button>
+              <button class="ms-2 bg-glass-morphi glass-morphi-border glass-morphi-button d-flex align-items-center gap-2 rounded-5 ps-3" style="font-size: 14px;">
+                <Icon name="material-symbols-light:back-hand-outline-rounded" class="icon" size="20"  />
+                Hold
+              </button>
             </div>
-            <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg overflow-y-scroll mb-3" style="max-height: 48vh">
-              <table class="w-100">
-                <thead>
-                <tr>
-                  <th class="p-2">NAME</th>
-                  <th class="p-2">QTY</th>
-                  <th class="p-2">TAX</th>
-                  <th class="p-2">PRICE</th>
-                  <th class="p-2">SUB TOTAL</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td class="p-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="width-40px height-40px rounded" alt="">
-                      <h4 class="fs-6">Apple Watch</h4>
+            <div class=" mt-4 overflow-hidden blur-bg overflow-y-scroll mb-3" style="max-height: 55vh">
+              <div class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>Apple Watch</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: $56</p>
+                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                    <p style="font-size: 14px">Sub Total: $61</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      qty counter..
                     </div>
-                  </td>
-                  <td class="p-2">
-                    qty
-                  </td>
-                  <td class="p-2">
-                    <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span>
-                  </td>
-                  <td class="p-2">$56</td>
-                  <td class="p-2">$61</td>
-                  <td class="p-2">
+                      <span class="primary-icon-button">
+                        <Icon name="material-symbols:delete-outline"/>
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>Apple Watch</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: $56</p>
+                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                    <p style="font-size: 14px">Sub Total: $61</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      qty counter..
+                    </div>
                     <span class="primary-icon-button">
-                    <Icon name="material-symbols:delete-outline"/>
-                    </span>
-                  </td>
-                </tr>
-
-
-                </tbody>
-              </table>
+                        <Icon name="material-symbols:delete-outline"/>
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>Apple Watch</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: $56</p>
+                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                    <p style="font-size: 14px">Sub Total: $61</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      qty counter..
+                    </div>
+                    <span class="primary-icon-button">
+                        <Icon name="material-symbols:delete-outline"/>
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>Apple Watch</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: $56</p>
+                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                    <p style="font-size: 14px">Sub Total: $61</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      qty counter..
+                    </div>
+                    <span class="primary-icon-button">
+                        <Icon name="material-symbols:delete-outline"/>
+                      </span>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+              <div class="w-20">
+                <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+              </div>
+              <div class="w-80">
+                <p>Apple Watch</p>
+                <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                  <p>Price: $56</p>
+                  <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                  <p style="font-size: 14px">Sub Total: $61</p>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                  <div class="text-white">
+                    qty counter..
+                  </div>
+                  <span class="primary-icon-button">
+                        <Icon name="material-symbols:delete-outline"/>
+                      </span>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
           <div>
@@ -190,42 +263,79 @@
               </span>
                   <input type="number" class="p-2 glass-morphi-border shadow rounded" placeholder="Discount">
                 </div>
-                <button class="primary-button mt-3">PAY</button>
+                <button class="primary-button mt-3 fs-6  px-2 py-1" data-bs-toggle="modal" data-bs-target="#pos-invoice">PAY</button>
               </div>
               <div class="d-flex flex-column align-items-end">
-                <h3 class="fs-5">Sub Total: $0.00</h3>
+                <h3 class="fs-6 mb-1">Sub Total: $0.00</h3>
                 <h4 class="fs-6">Total: $0.00</h4>
-                <button class="glass-morphi-button mt-3">Empty Cart</button>
+                <button class="glass-morphi-button mt-3 fs-6 px-2 py-1">Empty Cart</button>
               </div>
             </div>
-            <div class="d-flex align-items-center gap-3 my-3">
-              <button class="primary-red-button d-flex align-items-center gap-2 fw-medium">
-                <Icon name="material-symbols:edit-outline" size="20" />
-                Hold
-              </button>
-              <button class="primary-red-button d-flex align-items-center gap-2 fw-medium">
-                <Icon name="material-symbols:edit-document-outline-rounded" size="20" />
-                Quotation
-              </button>
-            </div>
           </div>
-
         </div>
+
       </div>
     </div>
   </div>
+  <Modal id="pos-invoice" title="Pos Invoice" size="xl">
 
+    <div class="d-flex align-items-center justify-content-between">
+      <div>
+        <h1 class="mb-2">Takar Hisab</h1>
+        <strong class="text-white">#234567</strong>
+        <p><strong class="text-white">Date:</strong> 2024-02-05</p>
+        <strong class="text-white">Billed To: Walk-In Customer</strong>
+      </div>
+      <div>
+        <strong class="text-white">Shipped:</strong>
+      </div>
+      <div class="w-30">
+        <p class="text-end mb-4"><strong>Store Name: </strong>The Treasure</p>
+          <strong class="text-white d-block">From:</strong>
+          <strong class="text-white">Rajodiya Infotech 3726 Clay Lick Road, Longmont,Colorado, New Zealand,80501</strong>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <table class="w-100">
+        <thead>
+        <tr class="bg-glass-morphi">
+          <th class="p-2">ITEMS	</th>
+          <th class="p-2">QUANTITY</th>
+          <th class="p-2">PRICE</th>
+          <th class="p-2">TAX</th>
+          <th class="p-2">TOTAL</th>
+        </tr>
+        </thead>
+        <tr>
+          <td>Apple Watch</td>
+          <td>1</td>
+          <td>500</td>
+          <td>-</td>
+          <td>500</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="mt-5">
+      <NuxtLink to="/pos/print-invoice"  class="primary-button">Cash Payment</NuxtLink>
+    </div>
+
+  </Modal>
 </template>
+
+
 
 
 <style>
 .pos-enter-active,
 .pos-leave-active {
-  transition: all 0.4s ease-out;
+  transition: all 0.3s ease-out;
 }
 .pos-enter-from,
 .pos-leave-to {
   opacity: 0;
   filter: blur(15px);
+  display: none;
 }
 </style>

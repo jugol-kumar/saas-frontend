@@ -28,6 +28,9 @@
     }
     .vs__dropdown-option {
       color: #fff !important;
+      &--highlight {
+        background-color: $primary-color !important;
+      }
       &:hover {
         background-color: $primary-color !important;
       }

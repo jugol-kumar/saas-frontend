@@ -27,10 +27,10 @@ defineProps({
         <div class="modal-body">
           <slot></slot>
         </div>
-        <div class="modal-footer border-0">
-          <button type="button" class="glass-morphi-button" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="primary-button">Save</button>
-        </div>
+<!--        <div class="modal-footer border-0">-->
+<!--          <button type="button" class="glass-morphi-button" data-bs-dismiss="modal">Cancel</button>-->
+<!--          <button type="button" class="primary-button">Save</button>-->
+<!--        </div>-->
       </div>
     </div>
   </div>

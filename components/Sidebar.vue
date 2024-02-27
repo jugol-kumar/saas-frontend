@@ -158,31 +158,39 @@
             </ul>
           </li>
         <!--    Role And Permission      -->
+<!--          <li>-->
+<!--            <a class="items-link" data-bs-toggle="collapse" href="#collapseRole" role="button" aria-expanded="false" aria-controls="collapseRole">-->
+<!--              <span class="icon">-->
+<!--                <Icon name="oui:app-users-roles"></Icon>-->
+<!--              </span>-->
+<!--              <span class="text">Role & Permission</span>-->
+<!--            </a>-->
+<!--            <ul class="collapse ps-3" id="collapseRole">-->
+<!--              <li class="my-3">-->
+<!--                <NuxtLink to="/roles" class="items-link items-link&#45;&#45;sub">-->
+<!--                  <span class="icon">-->
+<!--                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>-->
+<!--                  </span>-->
+<!--                    <span class="text">Roles</span>-->
+<!--                </NuxtLink>-->
+<!--              </li>-->
+<!--              <li>-->
+<!--                <NuxtLink to="/permission" class="items-link items-link&#45;&#45;sub">-->
+<!--                  <span class="icon">-->
+<!--                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>-->
+<!--                  </span>-->
+<!--                  <span class="text">Permission</span>-->
+<!--                </NuxtLink>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </li>-->
           <li>
-            <a class="items-link" data-bs-toggle="collapse" href="#collapseRole" role="button" aria-expanded="false" aria-controls="collapseRole">
+            <NuxtLink to="/transaction" class="items-link">
               <span class="icon">
-                <Icon name="oui:app-users-roles"></Icon>
+                <Icon name="icon-park-outline:transaction"></Icon>
               </span>
-              <span class="text">Role & Permission</span>
-            </a>
-            <ul class="collapse ps-3" id="collapseRole">
-              <li class="my-3">
-                <NuxtLink to="/roles" class="items-link items-link--sub">
-                  <span class="icon">
-                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
-                  </span>
-                    <span class="text">Roles</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/permission" class="items-link items-link--sub">
-                  <span class="icon">
-                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
-                  </span>
-                  <span class="text">Permission</span>
-                </NuxtLink>
-              </li>
-            </ul>
+              <span class="text">Transaction</span>
+            </NuxtLink>
           </li>
           <li>
             <NuxtLink to="/file-manager" class="items-link">

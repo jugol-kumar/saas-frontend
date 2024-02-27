@@ -9,7 +9,7 @@
 
 
       <template v-slot:option="option">
-        <li class="d-flex align-items-start py-1">
+        <li class="d-flex align-items-start py-1 gap-3">
           <div class="avatar me-75">
             <img src="/images/placeholder.webp" alt="" width="38" height="38">
           </div>

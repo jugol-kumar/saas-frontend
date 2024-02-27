@@ -111,20 +111,6 @@
 
   <div class="row">
     <Pagination :pagination="products"/>
-    <div class="col-sm-12 col-md-7">
-      <div class="d-flex align-items-center justify-content-end">
-        <ul class="pagination flex p-2  rounded gap-2 border text-white">
-          <li
-              class="paginate_button page-item"
-              v-for="paginations in products?.meta?.last_page"
-              :class="{'active' : paginations === products?.meta.current_page}"
-              :key="'padingate'+paginations"
-          >
-            <span @click="page = paginations" class="page-link" v-html="paginations" />
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
 
 
