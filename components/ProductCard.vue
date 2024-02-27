@@ -4,7 +4,7 @@
   })
 </script>
 <template>
-  <div class="col-lg-3 mb-4">
+  <div class="col-lg-3 mb-4 cursor-pointer" @click="$emit('setToCart', info)">
     <div class="product-card bg-glass-morphi glass-morphi-border p-2 rounded blur-bg">
       <NuxtLink to="" class="product-card-top">
         <span>12 QTY</span>
