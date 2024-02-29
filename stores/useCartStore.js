@@ -13,7 +13,7 @@ export const useCartStore = defineStore('cart', {
                 return item?.sku === data?.sku
             });
             if (index > -1) {
-                this.cart[index].buyQty++;
+                this.cart[index].quantity++;
                 toast.info("Quantity Updated...")
             } else {
                 this.cart.push(data);
@@ -39,9 +39,12 @@ export const useCartStore = defineStore('cart', {
             toast.info("Quantity Updated...")
         },
 
-        clearCart() {
+        clearCart(isToast = true) {
             this.cart = [];
-            toast.info("Empty Cart Store...")
+            console.log(isToast)
+            if(isToast) {
+                toast.info("Empty Cart Store...")
+            }
         }
     },
 
@@ -53,7 +56,7 @@ export const useCartStore = defineStore('cart', {
             return this.cart;
         },
         getCartTotalPrice() {
-            return this.cart.reduce((total, item) => total + item.price * item.buyQty, 0)
+            return this.cart.reduce((total, item) => total + item.price * item.quantity, 0)
         }
     },
     persist:true

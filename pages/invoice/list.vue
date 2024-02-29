@@ -1,5 +1,44 @@
 <script setup>
-const isToggled = ref(false)
+  definePageMeta({
+    middleware:['auth']
+  })
+
+  import {useToast} from "vue-toastification";
+  const toast = useToast();
+  const isToggled = ref(false)
+  const search = ref('');
+  const page = ref(1);
+  const perPage = ref(3)
+  const orderPageChange = (value) => page.value = value
+
+  const { data, error, pending } = useLazyAsyncData(
+      'orders',
+      () => $fetch( `/customer/order`, {
+        method: 'GET',
+        baseURL: useRuntimeConfig().public.baseUrl,
+        params: {
+          page: page.value,
+          search: search.value,
+          perPage: perPage.value
+        },
+        headers:{
+          authorization: `Bearer ${useTokenStore().token}`
+        }
+      }), {
+        watch: [
+          page,
+          search,
+          perPage
+        ]
+      },
+  );
+  watch(error, ()=>{
+    if(error?.value){
+      toast.error(error?.value?.data?.message)
+    }
+  })
+
+
 </script>
 
 <template>
@@ -10,7 +49,10 @@ const isToggled = ref(false)
       Add Invoice
     </NuxtLink>
   </div>
-  <div class="bg-glass-morphi glass-morphi-border p-3 my-5 rounded">
+  <div v-if="pending">
+    <h2>Loading....</h2>
+  </div>
+  <div v-else class="bg-glass-morphi glass-morphi-border p-3 my-5 rounded">
     <table class="table table-borderless table-responsive">
       <thead>
       <tr>
@@ -25,9 +67,9 @@ const isToggled = ref(false)
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr v-for="order  in data.data">
         <td>
-          <span class="primary-red-button d-inline-block">#4567890</span>
+          <span class="primary-red-button d-inline-block">#{{ order?.order_id }}</span>
         </td>
         <td>Tushar Imran</td>
         <td>Admin</td>
@@ -62,6 +104,7 @@ const isToggled = ref(false)
       </tr>
       </tbody>
     </table>
+    <pagination :pagination="data" @changePage="orderPageChange"/>
   </div>
 </template>
 
