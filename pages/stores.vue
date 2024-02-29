@@ -16,7 +16,7 @@
             <Icon name="solar:shop-2-bold" size="60" />
           </div>
           <div>
-            <h4>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h4>
+            <h5>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h5>
             <p>owner@example.com	</p>
             <div class="d-flex align-items-center gap-3">
               <p>Store: 1</p>
@@ -50,7 +50,7 @@
             <Icon name="solar:shop-2-bold" size="60" />
           </div>
           <div>
-            <h4>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h4>
+            <h5>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h5>
             <p>owner@example.com	</p>
             <div class="d-flex align-items-center gap-3">
               <p>Store: 1</p>
@@ -84,7 +84,7 @@
             <Icon name="solar:shop-2-bold" size="60" />
           </div>
           <div>
-            <h4>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h4>
+            <h5>Rajodiya Infotech <span class="primary-bg py-1 px-2 fs-6 rounded">Gold</span></h5>
             <p>owner@example.com	</p>
             <div class="d-flex align-items-center gap-3">
               <p>Store: 1</p>

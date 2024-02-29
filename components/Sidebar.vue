@@ -65,22 +65,6 @@
                   <span class="text">Shipping</span>
                 </NuxtLink>
               </li>
-              <li class="mb-3">
-                <NuxtLink to="/dashboard/invoice/add" class="items-link  items-link--sub">
-                  <span class="icon">
-                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
-                  </span>
-                  <span class="text">Custom Page</span>
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/dashboard/invoice/add" class="items-link  items-link--sub">
-                  <span class="icon">
-                    <Icon name="mdi:checkbox-blank-circle-outline"></Icon>
-                  </span>
-                  <span class="text"> Blog</span>
-                </NuxtLink>
-              </li>
             </ul>
           </li>
           <li>

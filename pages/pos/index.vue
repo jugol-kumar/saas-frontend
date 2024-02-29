@@ -175,7 +175,7 @@
                 <h2>Pending....</h2>
               </div>
 
-              <div class="row" v-else>
+              <div class="row row-cols-5" v-else>
                 <ProductCard @setToCart="addedToCart" :info="item" v-for="item in products?.data"/>
               </div>
               <Pagination :pagination="products" @changePage="setPage"/>
@@ -201,39 +201,30 @@
             </div>
 
 
-            <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg">
-              <table class="w-100 overflow-y-scroll">
-                <thead>
-                <tr>
-                  <th class="p-2">NAME</th>
-                  <th class="p-2">QTY</th>
-                  <th class="p-2">PRICE</th>
-                  <th class="p-2">SUB TOTAL</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="item in cartStore.getCartItems">
-                    <td class="p-2">
-                      <div class="d-flex align-items-center gap-2">
-                        <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="width-40px height-40px rounded" alt="">
-                        <h4 class="fs-6">{{ item?.name }}</h4>
-                      </div>
-                    </td>
-                    <td class="p-2">
-                      {{ item?.buyQty }}
-                    </td>
-                    <td class="p-2">
-                      {{ item?.price }} ৳
-                    </td>
-                    <td class="p-2">{{ item?.price * item?.buyQty }} ৳</td>
-                    <td class="p-2">
-                      <span class="delete" @click="cartStore.removeFromCart(item)">
-                      <Icon name="material-symbols:delete-outline"/>
-                      </span>
-                    </td>
-                </tr>
-                </tbody>
-              </table>
+            <div class="mt-4 overflow-hidden p-1 blur-bg">
+              <div
+                  v-for="item in cartStore.getCartItems"
+                  class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>{{ item?.name }}</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: {{ item?.price }} ৳</p>
+                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>
+                    <p style="font-size: 14px">Sub Total: {{ item?.price * item?.buyQty }} ৳</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      Quantity : {{ item?.buyQty }}
+                    </div>
+                    <button class="primary-icon-button" @click="cartStore.removeFromCart(item)">
+                        <Icon name="material-symbols:delete-outline"/>
+                      </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -242,32 +233,29 @@
           <div class="bg-glass-morphi glass-morphi-border rounded d-flex justify-content-between p-4 blur-bg mt-5">
             <div>
               <div class="d-flex gap-2">
-              <span class="p-2 glass-morphi-border bg-glass-morphi rounded d-flex align-items-center justify-content-center">
-                <Icon name="ph:currency-dollar-simple-thin" />
-              </span>
+                <span class="p-2 glass-morphi-border bg-glass-morphi rounded d-flex align-items-center justify-content-center">
+                  <Icon name="ph:currency-dollar-simple-thin" />
+                </span>
                   <input type="number" class="p-2 glass-morphi-border shadow rounded" placeholder="Discount">
                 </div>
-                <button class="primary-button mt-3 fs-6  px-2 py-1" data-bs-toggle="modal" data-bs-target="#pos-invoice">PAY</button>
+                <div class="d-flex align-items-center gap-3">
+                  <button class="primary-button mt-3 fs-6  px-2 py-1" data-bs-toggle="modal" data-bs-target="#pos-invoice">PAY</button>
+                  <button class="primary-button mt-3 fs-6  px-2 py-1" >Quotation</button>
+                </div>
               </div>
               <div class="d-flex flex-column align-items-end">
-                <h3 class="fs-6 mb-1">Sub Total: $0.00</h3>
-                <h4 class="fs-6">Total: $0.00</h4>
-                <button class="glass-morphi-button mt-3 fs-6 px-2 py-1">Empty Cart</button>
+                <h3 class="fs-6 mb-1">Sub Total: {{ cartStore.getCartTotalPrice }} ৳</h3>
+                <h4 class="fs-6">Total: {{ cartStore.getCartTotalPrice }} ৳</h4>
+                <button class="glass-morphi-button mt-3 fs-6 px-2 py-1"  @click="cartStore.clearCart" >Empty Cart</button>
               </div>
-
-              <button class="primary-button mt-3">PAY</button>
-            </div>
-            <div class="d-flex flex-column align-items-end">
-              <h3 class="fs-5">Sub Total: {{ cartStore.getCartTotalPrice }} ৳</h3>
-              <h4 class="fs-6">Total: {{ cartStore.getCartTotalPrice }} ৳</h4>
-              <button @click="cartStore.clearCart" class="glass-morphi-button mt-3">Empty Cart</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-<!--  </div>-->
+
+
+
   <Modal id="pos-invoice" title="Pos Invoice" size="xl">
 
     <div class="d-flex align-items-center justify-content-between">

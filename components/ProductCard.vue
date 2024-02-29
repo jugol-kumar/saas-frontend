@@ -5,7 +5,7 @@
 </script>
 <template>
 
-  <div class="col-lg-3 mb-4 cursor-pointer" @click="$emit('setToCart', info)">
+  <div class="col mb-4 cursor-pointer" @click="$emit('setToCart', info)">
     <div class="product-card bg-glass-morphi glass-morphi-border p-2 rounded blur-bg">
       <NuxtLink to="" class="product-card-top">
         <span>12 QTY</span>
@@ -13,10 +13,10 @@
       </NuxtLink>
       <div class="product-card-body mt-n2">
         <h4>
-          <NuxtLink to="">{{ info?.name }}</NuxtLink>
+          <NuxtLink to="" style="font-size: 15px;">{{ info?.name }}</NuxtLink>
         </h4>
         <div class="d-flex align-items-center justify-content-between py-2">
-          <span>{{ info?.price }}</span>
+          <span>{{ info?.price }}  ৳</span>
           |
           <span>{{ info?.sku }}</span>
 
