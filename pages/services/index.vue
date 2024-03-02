@@ -176,5 +176,4 @@ const deleteService = async (id) => {
       </div>
     </form>
   </Offcanvas>
-
 </template>

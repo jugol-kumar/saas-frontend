@@ -10,3 +10,7 @@
   transform: translateY(20px);
   opacity: 0;
 }
+
+.fade{
+  transition: all 0.2s ease-in-out !important;
+}

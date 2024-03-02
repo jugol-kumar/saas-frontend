@@ -1,37 +1,50 @@
-<script setup>
-defineProps({
-  id: {
-    type: String,
-  },
-  title: {
-    type: String,
-    default: "Modal Title"
-  },
-  size: {
-    type: String,
-    default: "md"
-  }
-});
-</script>
-
 <template>
-  <div class="modal modal-slide-in fade blur-bg" :id="id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div :class="`modal-dialog modal-${size}`">
-      <div class="modal-content bg-glass-morphi glass-morphi-border">
-        <div class="modal-header border-0">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">{{ title }}</h1>
-          <button type="button" data-bs-dismiss="modal" aria-label="Close">
-            <Icon name="material-symbols:close" size="24" />
-          </button>
+
+  <div class="modal fade" :id="id" tabindex="-1" aria-hidden="true">
+    <div :class="`modal-dialog modal-${size} modal-dialog-${position}`">
+      <div class="modal-content">
+        <div class="modal-header" v-if="title">
+          <h4 class="modal-title">{{ title }}</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-<!--        <div class="modal-footer border-0">-->
-<!--          <button type="button" class="glass-morphi-button" data-bs-dismiss="modal">Cancel</button>-->
-<!--          <button type="button" class="primary-button">Save</button>-->
-<!--        </div>-->
+        <slot />
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+const { $bsModal }= useNuxtApp();
+
+const props = defineProps({
+  id: {
+    type: String
+  },
+  title: {
+    type: String
+  },
+  size: {
+    type: String,
+    default: 'md'
+  },
+  position: {
+    type: String,
+    default: 'centered'
+  },
+})
+
+const modal = ref(null);
+const openModal = () => {
+  if (modal.value) {
+    new $bsModal.Modal(modal.value).show();
+  }
+};
+
+const closeModal = () => {
+  if (modal.value) {
+    new $bsModal.Modal(modal.value).hide();
+  }
+};
+
+
+</script>

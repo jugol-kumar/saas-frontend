@@ -57,7 +57,7 @@
                     <span class="align-middle">Deleted Files</span>
                   </a>
                 </div>
-                <div class="list-group list-group-labels">
+                <div class="list-group list-group-labels bg-glass-morphi">
                   <h6 class="section-label px-2 mb-1">Labels</h6>
                   <a href="#" class="list-group-item list-group-item-action">
                     <i data-feather="file-text" class="me-50 font-medium-3"></i>

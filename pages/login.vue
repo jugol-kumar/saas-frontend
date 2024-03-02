@@ -1,13 +1,15 @@
 
 <script setup >
 
+  import {useToast} from "vue-toastification";
+
   definePageMeta({
     layout: false,
     middleware: ['guest']
   })
 
   const { setToken } = useTokenStore();
-
+  const toast = useToast();
   const from = ref({
     email: "customer@customer.com",
     password: "12345678",
@@ -25,11 +27,16 @@
     isPending.value = pending
     errors.value = error
 
+    if(error?.value) toast.error(error?.value.message)
+
     if (!error.value){
       setToken(data.value?.token)
       return navigateTo('/dashboard')
     }
+    isPending.value = false;
+
   }
+
 
 
 </script>
