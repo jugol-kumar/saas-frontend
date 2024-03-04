@@ -38,9 +38,12 @@
 
   const tab = ref('product')
   const customerId = ref(null)
-  const payAmount = ref(0)
-  const dueAmount = ref(0)
+  const payAmount = ref(null)
   const discount = ref(0)
+  const paymentMethod = ref('Cache')
+
+  const paymentMethods = ref(['Cache', 'Bkash', 'Rocket', 'Bank'])
+
 
   // products sections
   const searchProduct = ref('');
@@ -128,9 +131,11 @@
         body: {
           user_id: customerId.value,
           payAmount: payAmount.value,
-          dueAmount: dueAmount.value,
+          dueAmount: cartStore.getCartTotalPrice - payAmount.value,
           givenDiscount: discount.value,
-          order_details: cartStore.cart
+          totalAmount: cartStore.getCartTotalPrice,
+          order_details: cartStore.cart,
+          paymentMethod: paymentMethod.value
         }
       })
 
@@ -151,8 +156,6 @@
     }
   }
 
-  console.log("pending ref", orderPending)
-  //
   async function paymentReceived(ele) {
     window.frames["print_frame"].document.title = document.title;
     window.frames["print_frame"].document.body.innerHTML = ele
@@ -283,39 +286,31 @@
                 <Icon name="material-symbols:camera" class="icon" size="20" />
               </button>
             </div>
-            <div class="bg-glass-morphi glass-morphi-border rounded mt-4 overflow-hidden p-1 blur-bg">
-              <table class="w-100 overflow-y-scroll">
-                <thead>
-                <tr>
-                  <th class="p-2">NAME</th>
-                  <th class="p-2">QTY</th>
-                  <th class="p-2">PRICE</th>
-                  <th class="p-2">SUB TOTAL</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, i) in getCartItems" :key="`cart-products-services-${i}`">
-                    <td class="p-2">
-                      <div class="d-flex align-items-center gap-2">
-                        <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="width-40px height-40px rounded" alt="">
-                        <h4 class="fs-6">{{ item?.name }}</h4>
-                      </div>
-                    </td>
-                    <td class="p-2">
-                      {{ item?.quantity }}
-                    </td>
-                    <td class="p-2">
-                      {{ item?.price }} ৳
-                    </td>
-                    <td class="p-2">{{ item?.price * item?.quantity }} ৳</td>
-                    <td class="p-2">
-                      <span class="delete" @click="cartStore.removeFromCart(item)">
+
+            <div class="mt-4 overflow-hidden p-1 blur-bg">
+              <div v-for="item in cartStore.getCartItems"
+                  class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
+                <div class="w-20">
+                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                </div>
+                <div class="w-80">
+                  <p>{{ item?.name }}</p>
+                  <div class="d-flex align-items-center justify-content-between w-100 py-1">
+                    <p>Price: {{ item?.price }} ৳</p>
+                    <p class="mx-3"> | </p>
+<!--                    <p style="font-size: 14px">Tax: <span class="primary-bg px-1 rounded" style="font-size: 12px">GST 7%</span></p>-->
+                    <p style="font-size: 14px">Sub Total: {{ item?.price * item?.quantity }} ৳</p>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="text-white">
+                      Quantity : {{ item?.quantity }}
+                    </div>
+                    <button class="primary-icon-button" @click="cartStore.removeFromCart(item)">
                       <Icon name="material-symbols:delete-outline"/>
-                      </span>
-                    </td>
-                </tr>
-                </tbody>
-              </table>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -326,19 +321,24 @@
               <span class="p-2 glass-morphi-border bg-glass-morphi rounded d-flex align-items-center justify-content-center">
                 <Icon name="ph:currency-dollar-simple-thin" />
               </span>
-                <input type="number" v-model="discount" class="p-2 glass-morphi-border shadow rounded" placeholder="Discount">
+                <div class="d-flex flex-column">
+                  <input type="number" v-model="payAmount" class="p-2 glass-morphi-border shadow rounded" placeholder="Pay Amount">
+                  <v-select v-model="paymentMethod" :options="paymentMethods" placeholder="Seelct Payment Method"/>
+                </div>
               </div>
-              {{ orderPending }}
               <Button @click="saveOrder" :is-loading="orderPending.value">
                 Pay And Order
               </Button>
-
-<!--              <button  :disabled="" class="primary-button mt-3">PAY</button>-->
             </div>
             <div class="d-flex flex-column align-items-end">
               <h3 class="fs-5">Sub Total: {{ cartStore.getCartTotalPrice }} ৳</h3>
+              <h4 class="fs-6 border-bottom" v-if="payAmount">Pay Amount: {{ payAmount }} ৳</h4>
+
+              <h4 class="fs-6 mt-2" v-if="payAmount">Due Amount: {{ cartStore.getCartTotalPrice - payAmount }} ৳</h4>
+
+
               <h4 class="fs-6" v-if="discount">Discount: {{ discount }} ৳</h4>
-              <h4 class="fs-6" :class="{'border-top' : discount}">Total: {{ cartStore.getCartTotalPrice - discount }} ৳</h4>
+<!--              <h4 class="fs-6" :class="{'border-top' : discount}">Total: {{ cartStore.getCartTotalPrice - discount }} ৳</h4>-->
               <button @click="cartStore.clearCart" class="glass-morphi-button mt-3">Empty Cart</button>
             </div>
           </div>
