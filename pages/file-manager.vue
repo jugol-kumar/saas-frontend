@@ -198,7 +198,7 @@
                       <div class="card shadow-none border cursor-pointer">
                         <div class="card-body">
                           <div class="d-flex justify-content-between">
-                            <img src="../../../app-assets/images/icons/drive.png" alt="google drive" height="38" />
+<!--                            <img src="../../../app-assets/images/icons/drive.png" alt="google drive" height="38" />-->
                             <div class="dropdown-items-wrapper">
                               <i data-feather="more-vertical" id="dropdownMenuLink1" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1">
@@ -234,7 +234,7 @@
                       <div class="card shadow-none border cursor-pointer">
                         <div class="card-body">
                           <div class="d-flex justify-content-between">
-                            <img src="../../../app-assets/images/icons/dropbox.png" alt="dropbox" height="38" />
+<!--                            <img src="../../../app-assets/images/icons/dropbox.png" alt="dropbox" height="38" />-->
                             <div class="dropdown-items-wrapper">
                               <i data-feather="more-vertical" id="dropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
@@ -270,7 +270,7 @@
                       <div class="card shadow-none border cursor-pointer">
                         <div class="card-body">
                           <div class="d-flex justify-content-between">
-                            <img src="../../../app-assets/images/icons/onedrivenew.png" alt="icloud" height="38" class="p-25" />
+<!--                            <img src="../../../app-assets/images/icons/onedrivenew.png" alt="icloud" height="38" class="p-25" />-->
                             <div class="dropdown-items-wrapper">
                               <i data-feather="more-vertical" id="dropdownMenuLink3" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink3">
@@ -306,7 +306,7 @@
                       <div class="card shadow-none border cursor-pointer">
                         <div class="card-body">
                           <div class="d-flex justify-content-between">
-                            <img src="../../../app-assets/images/icons/icloud-1.png" alt="icloud" height="38" class="p-25" />
+<!--                            <img src="../../../app-assets/images/icons/icloud-1.png" alt="icloud" height="38" class="p-25" />-->
                             <div class="dropdown-items-wrapper">
                               <span data-feather="more-vertical" id="dropdownMenuLink4" role="button" data-bs-toggle="dropdown" aria-expanded="false"></span>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink4">
@@ -517,7 +517,7 @@
                         <i data-feather="more-vertical" class="toggle-dropdown mt-n25"></i>
                       </div>
                       <div class="d-flex align-items-center justify-content-center w-100">
-                        <img src="../../../app-assets/images/icons/jpg.png" alt="file-icon" height="35" />
+<!--                        <img src="../../../app-assets/images/icons/jpg.png" alt="file-icon" height="35" />-->
                       </div>
                     </div>
                     <div class="card-body">
@@ -539,7 +539,7 @@
                         <i data-feather="more-vertical" class="toggle-dropdown mt-n25"></i>
                       </div>
                       <div class="d-flex align-items-center justify-content-center w-100">
-                        <img src="../../../app-assets/images/icons/doc.png" alt="file-icon" height="35" />
+<!--                        <img src="../../../app-assets/images/icons/doc.png" alt="file-icon" height="35" />-->
                       </div>
                     </div>
                     <div class="card-body">
@@ -561,7 +561,7 @@
                         <i data-feather="more-vertical" class="toggle-dropdown mt-n25"></i>
                       </div>
                       <div class="d-flex align-items-center justify-content-center w-100">
-                        <img src="../../../app-assets/images/icons/txt.png" alt="file-icon" height="35" />
+<!--                        <img src="../../../app-assets/images/icons/txt.png" alt="file-icon" height="35" />-->
                       </div>
                     </div>
                     <div class="card-body">
@@ -583,7 +583,7 @@
                         <i data-feather="more-vertical" class="toggle-dropdown mt-n25"></i>
                       </div>
                       <div class="d-flex align-items-center justify-content-center w-100">
-                        <img src="../../../app-assets/images/icons/json.png" alt="file-icon" height="35" />
+<!--                        <img src="../../../app-assets/images/icons/json.png" alt="file-icon" height="35" />-->
                       </div>
                     </div>
                     <div class="card-body">
@@ -634,7 +634,7 @@
                     <div class="tab-content" id="myTabContent">
                       <div class="tab-pane fade show active" id="details-tab" role="tabpanel" aria-labelledby="details-tab">
                         <div class="d-flex flex-column justify-content-center align-items-center py-5">
-                          <img src="../../../app-assets/images/icons/js.png" alt="file-icon" height="64" />
+<!--                          <img src="../../../app-assets/images/icons/js.png" alt="file-icon" height="64" />-->
                           <p class="mb-0 mt-1">54kb</p>
                         </div>
                         <h6 class="file-manager-title my-2">Settings</h6>
@@ -695,7 +695,7 @@
                         <h6 class="file-manager-title my-2">Today</h6>
                         <div class="d-flex align-items-center mb-2">
                           <div class="avatar avatar-sm me-50">
-                            <img src="../../../app-assets/images/avatars/5-small.png" alt="avatar" width="28" />
+<!--                            <img src="../../../app-assets/images/avatars/5-small.png" alt="avatar" width="28" />-->
                           </div>
                           <div class="more-info">
                             <p class="mb-0">
@@ -731,7 +731,7 @@
                         </div>
                         <div class="d-flex align-items-center">
                           <div class="avatar avatar-sm me-50">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" width="28" />
+<!--                            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" width="28" />-->
                           </div>
                           <div class="more-info">
                             <p class="mb-0">
@@ -743,14 +743,14 @@
                         <h6 class="file-manager-title mt-3 mb-2">3 days ago</h6>
                         <div class="d-flex align-items-start">
                           <div class="avatar avatar-sm me-50">
-                            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" width="28" />
+<!--                            <img src="../../../app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" width="28" />-->
                           </div>
                           <div class="more-info">
                             <p class="mb-50">
                               <span class="fw-bold">You</span>
                               uploaded this file
                             </p>
-                            <img src="../../../app-assets/images/icons/js.png" alt="Avatar" class="me-50" height="24" />
+<!--                            <img src="../../../app-assets/images/icons/js.png" alt="Avatar" class="me-50" height="24" />-->
                             <span class="fw-bold">app.js</span>
                           </div>
                         </div>

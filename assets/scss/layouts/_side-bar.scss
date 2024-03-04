@@ -67,12 +67,12 @@
             background-color: rgba(255, 255, 255, 0.3);
           }
         }
-        &--active {
-          background: $primary-color;
-          .icon {
-            background-color: rgba(255, 255, 255, 0.3);
-          }
-        }
+        //&--active {
+        //  background: $primary-color;
+        //  .icon {
+        //    background-color: rgba(255, 255, 255, 0.3);
+        //  }
+        //}
         &--sub {
           .icon {
             svg {
@@ -83,5 +83,12 @@
         }
       }
     }
+  }
+}
+
+.router-link-active{
+  background: $primary-color !important;
+  .icon {
+    background-color: rgba(255, 255, 255, 0.3) !important;
   }
 }
