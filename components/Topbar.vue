@@ -1,9 +1,12 @@
 <script setup>
+import {useTokenStore} from "~/stores/useTokenStore.js";
+
 const isScrolled = ref(false);
 const { logout } = useAuthStore();
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 10;
 };
+const {authUser} = useTokenStore()
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -56,8 +59,8 @@ onBeforeUnmount(() => {
         <div class="dropdown avatar-toggler">
           <div class="dropdown-toggle d-flex align-items-center justify-content-center gap-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div>
-              <h4>Tushar Imran</h4>
-              <p class="text-end">Admin</p>
+              <h4 class="text-end">{{ authUser.name }}</h4>
+<!--              <p class="text-end">{{ authUser.email }}</p>-->
             </div>
             <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="avatar">
           </div>
