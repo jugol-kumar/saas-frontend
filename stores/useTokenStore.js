@@ -5,18 +5,23 @@ export const useTokenStore = defineStore('token', {
         return {
             token: null,
             isLogin:  false,
+            authUser: null,
         }
     },
 
     actions:{
-        setToken(token){
-            this.token = token
+        setToken(data){
+            this.token = data.token
             this.isLogin = true;
+        },
+        setAuthUser(data){
+            this.authUser = data
         },
 
         removeToken(token){
             this.token = null
             this.isLogin = false
+            this.authUser = null
         }
     },
     getters:{
@@ -25,6 +30,9 @@ export const useTokenStore = defineStore('token', {
         },
         getIsLogin(){
             return this.isLogin
+        },
+        getAuthUser(){
+            return this.authUser
         }
     },
 
