@@ -1,4 +1,34 @@
 <script setup>
+import {useToast} from "vue-toastification";
+
+definePageMeta({
+  middleware:['auth']
+})
+
+const toast = useToast();
+
+
+const {data, error, pending} = useApiFetch(`customer/order/${useRoute().params?.id}`)
+watch(error, ()=>{
+  if(error?.value){
+    toast.error(error?.value?.data?.message)
+  }
+})
+
+
+
+const printInvoice = () =>{
+  window.frames["print_frame"].document.title = document.title;
+  window.frames["print_frame"].document.body.innerHTML = data.value?.invoice
+  window.frames["print_frame"].window.focus();
+  window.frames["print_frame"].window.print();
+}
+
+const addPayment = () =>{
+
+}
+
+
 </script>
 <template>
   <div class="app-content content mt-5">
@@ -9,7 +39,10 @@
       </div>
       <div class="content-body">
         <section class="invoice-preview-wrapper">
-          <div class="row invoice-preview">
+          <div v-if="pending">
+            <h1>Loading.........</h1>
+          </div>
+          <div v-else class="row invoice-preview">
             <!-- Invoice -->
             <div class="col-xl-9 col-md-8 col-12">
               <div class="card invoice-preview-card bg-glass-morphi glass-morphi-border">
@@ -20,23 +53,23 @@
                       <div class="logo-wrapper">
                         <h3 class="primary-color mb-3">Takar Hisab</h3>
                       </div>
-                      <p class="card-text mb-25">Office 149, 450 South Brand Brooklyn</p>
-                      <p class="card-text mb-25">San Diego County, CA 91905, USA</p>
-                      <p class="card-text mb-0">+1 (123) 456 7891, +44 (876) 543 2198</p>
+                      <p class="card-text mb-25" style="width:60%">{{ data?.store?.address }}</p>
+                      <p class="card-text mb-25">{{ data.store?.phone}}</p>
+                      <p class="card-text mb-0">{{ data.store?.email }}</p>
                     </div>
                     <div class="mt-md-0 mt-2">
                       <h4 class=" mb-4 d-flex invoice-title">
                         Invoice
-                        <span class="invoice-number">#3492</span>
+                        <span class="invoice-number ms-3">  {{ data.order_id }}</span>
                       </h4>
                       <div class="invoice-date-wrapper">
-                        <p class="invoice-date-title fw-bold">Date Issued:</p>
-                        <p class="invoice-date">25/08/2020</p>
+                        <p class="invoice-date-title fw-bold">Order Date:</p>
+                        <p class="invoice-date">{{ data.order_date }}</p>
                       </div>
-                      <div class="invoice-date-wrapper">
-                        <p class="invoice-date-title fw-bold">Due Date:</p>
-                        <p class="invoice-date">29/08/2020</p>
-                      </div>
+<!--                      <div class="invoice-date-wrapper">-->
+<!--                        <p class="invoice-date-title fw-bold">Due Date:</p>-->
+<!--&lt;!&ndash;                        <p class="invoice-date">29/08/2020</p>&ndash;&gt;-->
+<!--                      </div>-->
                     </div>
                   </div>
                   <!-- Header ends -->
@@ -49,36 +82,28 @@
                   <div class="row invoice-spacing">
                     <div class="col-xl-8 p-0">
                       <h6 class="mb-4">Invoice To:</h6>
-                      <h6 class="mb-25">Thomas shelby</h6>
-                      <p class="card-text mb-25">Shelby Company Limited</p>
-                      <p class="card-text mb-25">Small Heath, B10 0HF, UK</p>
-                      <p class="card-text mb-25">718-986-6062</p>
-                      <p class="card-text mb-0">peakyFBlinders@gmail.com</p>
+                      <div v-if="data?.customer">
+                        <h6 class="mb-25">{{ data?.customer?.name }}</h6>
+                        <p class="card-text mb-25">{{ data?.custoemr?.address }}</p>
+                        <p class="card-text mb-25">{{ data?.customer?.phone }}</p>
+                        <p class="card-text mb-0">{{ data?.customer?.email }}</p>
+                      </div>
                     </div>
+
+
                     <div class="col-xl-4 p-0 mt-xl-0 mt-2">
                       <h6 class="mb-4">Payment Details:</h6>
                       <table>
                         <tbody>
-                        <tr>
-                          <td class="pe-1">Total Due:</td>
-                          <td><span class="fw-bold">$12,110.55</span></td>
-                        </tr>
-                        <tr>
-                          <td class="pe-1">Bank name:</td>
-                          <td>American Bank</td>
-                        </tr>
-                        <tr>
-                          <td class="pe-1">Country:</td>
-                          <td>United States</td>
-                        </tr>
-                        <tr>
-                          <td class="pe-1">IBAN:</td>
-                          <td>ETD95476213874685</td>
-                        </tr>
-                        <tr>
-                          <td class="pe-1">SWIFT code:</td>
-                          <td>BR91905</td>
-                        </tr>
+                          <tr v-if="data?.pay_due">
+                            <td class="pe-1">Total Due:</td>
+                            <td><span class="fw-bold">{{ data?.pay_due }}</span></td>
+                          </tr>
+
+                          <tr v-if="data?.pay_due">
+                            <td class="pe-1">Payment Status: </td>
+                            <td><span class="fw-bold">Due</span></td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>
@@ -92,44 +117,31 @@
                     <thead>
                     <tr>
                       <th class="py-3">Task description</th>
-                      <th class="py-3">Rate</th>
-                      <th class="py-3">Hours</th>
+                      <th class="py-3">Qty</th>
+                      <th class="py-3">Price</th>
                       <th class="py-3">Total</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td class="py-3">
-                        <p class="card-text fw-bold mb-25">Native App Development</p>
-                        <p class="card-text text-nowrap">
-                          Developed a full stack native app using React Native, Bootstrap & Python
-                        </p>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">$60.00</span>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">30</span>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">$1,800.00</span>
-                      </td>
-                    </tr>
-                    <tr class="border-bottom">
-                      <td class="py-3">
-                        <p class="card-text fw-bold mb-25">Ui Kit Design</p>
-                        <p class="card-text text-nowrap">Designed a UI kit for native app using Sketch, Figma & Adobe XD</p>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">$60.00</span>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">20</span>
-                      </td>
-                      <td class="py-3">
-                        <span class="fw-bold">$1200.00</span>
-                      </td>
-                    </tr>
+                    <template v-if="data?.order_details.length">
+                      <tr v-for="(item, i) in data?.order_details" :key="`single-item-${i}`">
+                        <td class="py-3">
+                          <p class="card-text fw-bold mb-25">{{ item?.item_details?.name }}</p>
+                          <p class="card-text text-nowrap">
+                            Type: {{ item?.item_details?.type }}
+                          </p>
+                        </td>
+                        <td class="py-3">
+                          <span class="fw-bold">{{ item?.quantity }}</span>
+                        </td>
+                        <td class="py-3">
+                          <span class="fw-bold">{{ item?.item_details?.price }} ৳</span>
+                        </td>
+                        <td class="py-3">
+                          <span class="fw-bold">{{ item?.quantity * item?.item_details?.price }} ৳</span>
+                        </td>
+                      </tr>
+                    </template>
                     </tbody>
                   </table>
                 </div>
@@ -145,20 +157,20 @@
                       <div class="invoice-total-wrapper">
                         <div class="invoice-total-item d-flex">
                           <p class="invoice-total-title">Subtotal:</p>
-                          <p class="invoice-total-amount">$1800</p>
+                          <p class="invoice-total-amount">{{ data?.sub_total }} ৳</p>
                         </div>
                         <div class="invoice-total-item  d-flex">
-                          <p class="invoice-total-title">Discount:</p>
-                          <p class="invoice-total-amount">$28</p>
+                          <p class="invoice-total-title">Total Pay:</p>
+                          <p class="invoice-total-amount">{{ data?.pay_bill}} ৳</p>
                         </div>
-                        <div class="invoice-total-item  d-flex ">
-                          <p class="invoice-total-title">Tax:</p>
-                          <p class="invoice-total-amount">21%</p>
-                        </div>
+<!--                        <div class="invoice-total-item  d-flex ">-->
+<!--                          <p class="invoice-total-title">Tax:</p>-->
+<!--                          <p class="invoice-total-amount">21%</p>-->
+<!--                        </div>-->
                         <hr class="my-50" />
                         <div class="invoice-total-item d-flex">
-                          <p class="invoice-total-title">Total:</p>
-                          <p class="invoice-total-amount">$1690</p>
+                          <p class="invoice-total-title">Total Due:</p>
+                          <p class="invoice-total-amount">{{ data?.pay_due }} ৳</p>
                         </div>
                       </div>
                     </div>
@@ -173,7 +185,7 @@
                   <div class="row">
                     <div class="col-12">
                       <span class="fw-bold">Note:</span>
-                      <span>It was a pleasure working with you and your team. We hope you will keep us in mind for future freelance projects. Thank You!</span>
+                      <span></span>
                     </div>
                   </div>
                 </div>
@@ -181,27 +193,10 @@
               </div>
             </div>
             <!-- /Invoice -->
-
             <!-- Invoice Actions -->
-            <div class="col-xl-3 col-md-4 col-12 invoice-actions mt-md-0 mt-2">
-              <div>
-                <div class="bg-glass-morphi glass-morphi-border p-2 mb-4 rounded">
-                  <img src="/images/scan.png" class="w-100 h-auto" alt="">
-                </div>
-              </div>
-              <div class="card bg-glass-morphi glass-morphi-border">
-                <div class="card-body d-flex flex-column gap-3">
-                  <button class="primary-button w-100 mb-75" data-bs-toggle="offcanvas" data-bs-target="#send-invoice-sidebar">
-                    Send Invoice
-                  </button>
-                  <button class="btn btn-outline-secondary w-100 btn-download-invoice mb-75">Download</button>
-                  <a class="btn btn-outline-secondary w-100 mb-75" href="" target="_blank"> Print </a>
-                  <a class="btn btn-outline-secondary w-100 mb-75" href=""> Edit </a>
-                  <button class="primary-button w-100" data-bs-toggle="offcanvas" data-bs-target="#add-payment-sidebar">
-                    Add Payment
-                  </button>
-                </div>
-              </div>
+            <div class="col-xl-3 col-md-4 col-12">
+              <button class="btn bg-grayscale glass-morphi-button" @click="printInvoice">Print Invoice</button>
+              <button class="btn bg-grayscale glass-morphi-button" @click="addPayment">Add Payment</button>
             </div>
             <!-- /Invoice Actions -->
           </div>
@@ -275,4 +270,7 @@
       </div>
     </div>
   </div>
+
+
+  <iframe id="printing-frame" name="print_frame" src="about:blank" style="display:none;"/>
 </template>
