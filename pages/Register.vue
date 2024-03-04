@@ -16,12 +16,12 @@
           <label for="floatingTextarea">Password</label>
         </div>
         <div class="text-center">
-          <Button :isLoading="load">Register</Button>
+          <Button :isLoading="false">Register</Button>
         </div>
       </form>
     </div>
   </div>
 </template>
-<script setup lang="ts">
-  const load = false
+<script setup>
+
 </script>
