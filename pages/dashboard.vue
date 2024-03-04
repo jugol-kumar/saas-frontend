@@ -1,7 +1,14 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware:['auth']
-})
+  definePageMeta({
+    middleware:['auth']
+  })
+
+  const {getAuthUser} = useTokenStore()
+
+
+
+
+
 </script>
 
 <template>
@@ -40,10 +47,16 @@ definePageMeta({
           <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" class="width-60px height-60px rounded" alt="avatar">
           <div>
             <h4>Good Afternoon,</h4>
-            <h3 class="fw-bold">Keane Blackburn</h3>
+            <h3 class="fw-bold">
+              {{getAuthUser.name}}
+            </h3>
+
+
           </div>
         </div>
-        <p class="py-4">Have a nice day! Did you know that you can quickly add your favorite product or category to the store?</p>
+        <p class="py-4">
+          {{ getAuthUser.role }}
+        </p>
       </div>
     </div>
     <div class="col-lg-3 col-md-6 col-12">
