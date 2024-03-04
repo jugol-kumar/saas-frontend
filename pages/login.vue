@@ -8,7 +8,7 @@
     middleware: ['guest']
   })
 
-  const { setToken } = useTokenStore();
+  const { setToken, setAuthUser } = useTokenStore();
   const toast = useToast();
   const from = ref({
     email: "customer@customer.com",
@@ -20,18 +20,26 @@
   const isPending = ref(false)
   const errors = ref(null)
 
-  const {login} = useAuthStore();
+  const {login, fetchUser} = useAuthStore();
   const handelLogin = async () => {
     isPending.value = true;
     const {data, pending, error} = await login(from.value)
-    isPending.value = pending
+    isPending.value = pending.value
     errors.value = error
 
     if(error?.value) toast.error(error?.value.message)
 
     if (!error.value){
-      setToken(data.value?.token)
-      return navigateTo('/dashboard')
+      setToken(data.value)
+      const userData = await fetchUser();
+      setAuthUser(userData?.data?.value)
+
+      if(userData.data.value.role.includes('Customer')){
+        return navigateTo('/dashboard')
+      }else{
+        return navigateTo('/superadmin')
+      }
+
     }
     isPending.value = false;
 
