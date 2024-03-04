@@ -1,7 +1,7 @@
 <script setup>
 const {isLoading} = defineProps({
     isLoading: {
-      type: Boolean,
+      type: Boolean || {},
       default: false
     }
 })
