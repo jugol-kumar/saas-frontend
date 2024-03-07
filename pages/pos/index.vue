@@ -296,7 +296,7 @@
                   v-for="item in cartStore.getCartItems"
                   class="bg-glass-morphi glass-morphi-border rounded d-flex gap-3 p-2 mb-3">
                 <div class="w-20">
-                  <img src="https://img.freepik.com/free-vector/smart-watch-realistic_78370-593.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=ais" class="w-100 h-100 rounded">
+                  <img src="/public/images/avatar.avif" class="w-100 h-100 rounded">
                 </div>
                 <div class="w-80">
                   <p>{{ item?.name }}</p>

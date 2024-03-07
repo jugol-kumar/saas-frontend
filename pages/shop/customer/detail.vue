@@ -21,7 +21,7 @@ const itemsSelected = ref<Item[]>([]);
   <div class="row my-5">
     <div class="col-lg-3">
       <div class="p-3 bg-glass-morphi glass-morphi-border rounded text-center">
-        <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph"
+        <img src="/public/images/avatar.avif"
              class="w-100 h-auto rounded-5"
         >
         <h4 class="pt-3">Customer Name</h4>

@@ -14,7 +14,7 @@ const categories = ref(null);
       </div>
       <div class="bg-glass-morphi glass-morphi-border p-4 d-flex aling-item-center justify-content-between gap-2 rounded">
         <div class="d-flex align-items-center gap-3">
-          <img src="https://img.freepik.com/free-photo/3d-workstation-with-computer-peripheral-devices_23-2150713961.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.1.1037843751.1707219469&semt=sph" class="width-40px height-40px rounded-3" alt="">
+          <img src="/public/images/product.png" class="width-40px height-40px rounded-3" alt="">
           <h3>Gadget</h3>
         </div>
 

@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
               <h4>Tushar Imran</h4>
               <p class="text-end">Admin</p>
             </div>
-            <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="avatar">
+            <img src="/public/images/avatar.avif" alt="avatar">
           </div>
           <ul class="dropdown-menu bg-glass-morphi glass-morphi-border blur-bg">
             <li>

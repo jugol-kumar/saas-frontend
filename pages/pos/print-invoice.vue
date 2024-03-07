@@ -94,7 +94,7 @@ const printInvoice = () => {
 
 
       <div class="py-3">
-        <img src="https://img.freepik.com/premium-vector/qr-code-vector-icon_389832-989.jpg?w=1060"
+        <img src="/public/images/qr-code.avif"
              style="width: 200px;height: auto;"
              alt="">
         <p>No return. No exchange</p>

@@ -37,7 +37,7 @@ definePageMeta({
     <div class="col-lg-5">
       <div class="bg-glass-morphi glass-morphi-border p-4 rounded h-100">
         <div class="d-flex gap-3">
-          <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" class="width-60px height-60px rounded" alt="avatar">
+          <img src="/public/images/avatar.avif" class="width-60px height-60px rounded" alt="avatar">
           <div>
             <h4>Good Afternoon,</h4>
             <h3 class="fw-bold">Keane Blackburn</h3>

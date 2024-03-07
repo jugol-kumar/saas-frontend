@@ -40,16 +40,16 @@ const items: Item[] = [
                   <span class="text-white">Total 4 users</span>
                   <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" title="Vinnie Mostowy" class="avatar avatar-sm pull-up">
-                      <img class="rounded-circle" src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="Avatar" />
+                      <img class="rounded-circle" src="/public/images/avatar.avif" alt="Avatar" />
                     </li>
                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" title="Allen Rieske" class="avatar avatar-sm pull-up">
-                      <img class="rounded-circle" src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="Avatar" />
+                      <img class="rounded-circle" src="/public/images/avatar.avif" alt="Avatar" />
                     </li>
                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" title="Julee Rossignol" class="avatar avatar-sm pull-up">
-                      <img class="rounded-circle" src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="Avatar" />
+                      <img class="rounded-circle" src="/public/images/avatar.avif" alt="Avatar" />
                     </li>
                     <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" title="Kaith D'souza" class="avatar avatar-sm pull-up">
-                      <img class="rounded-circle" src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&uid=R102446229&ga=GA1.2.1037843751.1707219469&semt=sph" alt="Avatar" />
+                      <img class="rounded-circle" src="/public/images/avatar.avif" alt="Avatar" />
                     </li>
                   </ul>
                 </div>
