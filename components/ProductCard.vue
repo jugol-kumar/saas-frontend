@@ -9,7 +9,7 @@
     <div class="product-card bg-glass-morphi glass-morphi-border p-2 rounded blur-bg">
       <NuxtLink to="" class="product-card-top">
         <span>12 QTY</span>
-        <img src="/public/images/product.img" class="rounded mb-1" alt="">
+        <img src="/public/images/product.png" class="rounded mb-1" alt="">
       </NuxtLink>
       <div class="product-card-body mt-n2">
         <h4>
